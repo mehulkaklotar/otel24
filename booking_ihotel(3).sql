@@ -1,0 +1,2154 @@
+-- phpMyAdmin SQL Dump
+-- version 3.3.9
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Jun 01, 2011 at 01:32 PM
+-- Server version: 5.5.8
+-- PHP Version: 5.3.5
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `booking_ihotel`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `1_tbl_hotel_image`
+--
+
+CREATE TABLE IF NOT EXISTS `1_tbl_hotel_image` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `hotel_id` bigint(20) unsigned DEFAULT NULL,
+  `image` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`),
+  KEY `id_2` (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=972 ;
+
+--
+-- Table structure for table `availability`
+--
+
+CREATE TABLE IF NOT EXISTS `availability` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `hotel_id` int(11) NOT NULL,
+  `room_id` int(100) NOT NULL,
+  `rooms` int(11) NOT NULL,
+  `cindate` date NOT NULL,
+  `coutdate` date NOT NULL,
+  `price` int(11) NOT NULL,
+  `currency` varchar(10) COLLATE utf8_turkish_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci AUTO_INCREMENT=55 ;
+
+
+
+--
+-- Table structure for table `city`
+--
+
+CREATE TABLE IF NOT EXISTS `city` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `state_id` int(10) unsigned DEFAULT NULL,
+  `city_English` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT NULL,
+  `city_Turkish` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL DEFAULT '',
+  `status` tinyint(3) unsigned DEFAULT NULL,
+  `country_id` int(10) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`),
+  KEY `id_2` (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1088 ;
+
+--
+-- Dumping data for table `city`
+--
+
+INSERT INTO `city` (`id`, `state_id`, `city_English`, `city_Turkish`, `status`, `country_id`) VALUES
+(3, 1, 'ALADAĞ (KARSANTI)', 'ALADAĞ (KARSANTI)', 1, 227),
+(5, 1, 'CEYHAN', 'CEYHAN', 1, 227),
+(7, 1, 'ÇUKUROVA', 'ÇUKUROVA', 1, 227),
+(9, 1, 'FEKE', 'FEKE', 1, 227),
+(11, 1, 'İMAMOĞLU', 'İMAMOĞLU', 1, 227),
+(13, 1, 'KARAİSALI', 'KARAİSALI', 1, 227),
+(15, 1, 'KARATAŞ', 'KARATAŞ', 1, 227),
+(17, 1, 'KOZAN', 'KOZAN', 1, 227),
+(18, 1, 'POZANTI', 'POZANTI', 1, 227),
+(20, 1, 'SAİMBEYLİ', 'SAİMBEYLİ', 1, 227),
+(22, 1, 'SARIÇAM', 'SARIÇAM', 1, 227),
+(24, 1, 'SEYHAN', 'SEYHAN', 1, 227),
+(26, 1, 'TUFANBEYLİ', 'TUFANBEYLİ', 1, 227),
+(28, 1, 'YUMURTALIK', 'YUMURTALIK', 1, 227),
+(30, 1, 'YÜREĞİR', 'YÜREĞİR', 1, 227),
+(35, 2, 'ADIYAMAN (MERKEZ)', 'ADIYAMAN (MERKEZ)', 1, 227),
+(36, 2, 'BESNİ', 'BESNİ', 1, 227),
+(38, 2, 'ÇELİKHAN', 'ÇELİKHAN', 1, 227),
+(40, 2, 'GERGER', 'GERGER', 1, 227),
+(42, 2, 'GÖLBAŞI', 'GÖLBAŞI', 1, 227),
+(44, 2, 'KAHTA', 'KAHTA', 1, 227),
+(46, 2, 'SAMSAT', 'SAMSAT', 1, 227),
+(48, 2, 'SİNCİK', 'SİNCİK', 1, 227),
+(50, 2, 'TUT', 'TUT', 1, 227),
+(52, 3, 'AFYONKARAHİSAR (MERKEZ)', 'AFYONKARAHİSAR (MERKEZ)', 1, 227),
+(54, 3, 'BAŞMAKÇI', 'BAŞMAKÇI', 1, 227),
+(56, 3, 'BAYAT', 'BAYAT', 1, 227),
+(58, 3, 'BOLVADİN', 'BOLVADİN', 1, 227),
+(60, 3, 'ÇAY', 'ÇAY', 1, 227),
+(62, 3, 'ÇOBANLAR', 'ÇOBANLAR', 1, 227),
+(64, 3, 'DAZKIRI', 'DAZKIRI', 1, 227),
+(66, 3, 'DİNAR', 'DİNAR', 1, 227),
+(68, 3, 'EMİRDAĞ', 'EMİRDAĞ', 1, 227),
+(70, 3, 'EVCİLER', 'EVCİLER', 1, 227),
+(72, 3, 'HOCALAR', 'HOCALAR', 1, 227),
+(74, 3, 'İHSANİYE', 'İHSANİYE', 1, 227),
+(76, 3, 'İSCEHİSAR', 'İSCEHİSAR', 1, 227),
+(78, 3, 'KIZILÖREN', 'KIZILÖREN', 1, 227),
+(80, 3, 'SANDIKLI', 'SANDIKLI', 1, 227),
+(82, 3, 'SİNCANLI(SİNANPAŞA)', 'SİNCANLI(SİNANPAŞA)', 1, 227),
+(84, 3, 'ŞUHUT', 'ŞUHUT', 1, 227),
+(86, 3, 'SULTANDAĞI', 'SULTANDAĞI', 1, 227),
+(87, 4, 'AĞRI (MERKEZ)', 'AĞRI (MERKEZ)', 1, 227),
+(89, 3, 'DİYADİN', 'DİYADİN', 1, 227),
+(91, 4, 'DOĞUBEYAZIT', 'DOĞUBEYAZIT', 1, 227),
+(93, 4, 'ELEŞKİRT', 'ELEŞKİRT', 1, 227),
+(95, 4, 'HAMUR', 'HAMUR', 1, 227),
+(97, 4, 'PATNOS', 'PATNOS', 1, 227),
+(99, 4, 'TAŞLIÇAY', 'TAŞLIÇAY', 1, 227),
+(101, 4, 'TUTAK', 'TUTAK', 1, 227),
+(103, 5, 'AMASYA (MERKEZ)', 'AMASYA (MERKEZ)', 1, 227),
+(105, 4, 'GÖYNÜCEK', 'GÖYNÜCEK', 1, 227),
+(107, 5, 'GÜMÜŞHACIKÖY', 'GÜMÜŞHACIKÖY', 1, 227),
+(109, 5, 'HAMAMÖZÜ', 'HAMAMÖZÜ', 1, 227),
+(111, 5, 'MERZİFON', 'MERZİFON', 1, 227),
+(113, 5, 'SULUOVA', 'SULUOVA', 1, 227),
+(115, 5, 'TAŞOVA', 'TAŞOVA', 1, 227),
+(117, 6, 'AKYURT', 'AKYURT', 1, 227),
+(119, 6, 'ALTINDAĞ', 'ALTINDAĞ', 1, 227),
+(121, 6, 'AYAŞ', 'AYAŞ', 1, 227),
+(123, 6, 'BALA', 'BALA', 1, 227),
+(125, 6, 'BEYPAZARI', 'BEYPAZARI', 1, 227),
+(127, 6, 'ÇAMLIDERE', 'ÇAMLIDERE', 1, 227),
+(129, 6, 'ÇANKAYA', 'ÇANKAYA', 1, 227),
+(131, 6, 'ÇUBUK', 'ÇUBUK', 1, 227),
+(133, 6, 'ELMADAĞ', 'ELMADAĞ', 1, 227),
+(135, 6, 'ETİMESGUT', 'ETİMESGUT', 1, 227),
+(137, 6, 'EVREN', 'EVREN', 1, 227),
+(138, 6, 'GÖLBAŞI', 'GÖLBAŞI', 1, 227),
+(140, 6, 'GÜDÜL', 'GÜDÜL', 1, 227),
+(142, 6, 'HAYMANA', 'HAYMANA', 1, 227),
+(144, 6, 'KALECİK', 'KALECİK', 1, 227),
+(146, 6, 'KAZAN', 'KAZAN', 1, 227),
+(148, 6, 'KEÇİÖREN', 'KEÇİÖREN', 1, 227),
+(150, 6, 'KIZILCAHAMAM', 'KIZILCAHAMAM', 1, 227),
+(152, 6, 'MAMAK', 'MAMAK', 1, 227),
+(154, 6, 'NALLIHAN', 'NALLIHAN', 1, 227),
+(156, 6, 'POLATLI', 'POLATLI', 1, 227),
+(158, 6, 'PURSAKLAR', 'PURSAKLAR', 1, 227),
+(160, 6, 'ŞEREFLİKOÇHİSAR', 'ŞEREFLİKOÇHİSAR', 1, 227),
+(162, 6, 'SİNCAN', 'SİNCAN', 1, 227),
+(164, 6, 'YENİMAHALLE', 'YENİMAHALLE', 1, 227),
+(166, 7, 'AKSEKİ', 'AKSEKİ', 1, 227),
+(168, 7, 'AKSU', 'AKSU', 1, 227),
+(170, 7, 'ALANYA', 'ALANYA', 1, 227),
+(172, 7, 'DÖŞEMEALTI', 'DÖŞEMEALTI', 1, 227),
+(174, 6, 'ELMALI', 'ELMALI', 1, 227),
+(176, 7, 'FİNİKE', 'FİNİKE', 1, 227),
+(178, 7, 'GAZİPAŞA', 'GAZİPAŞA', 1, 227),
+(180, 7, 'GÜNDOĞMUŞ', 'GÜNDOĞMUŞ', 1, 227),
+(182, 7, 'İBRADI(AYDINKENT)', 'İBRADI(AYDINKENT)', 1, 227),
+(184, 7, 'KALE(DEMRE)', 'KALE(DEMRE)', 1, 227),
+(186, 7, 'KAŞ', 'KAŞ', 1, 227),
+(188, 7, 'KEMER', 'KEMER', 1, 227),
+(190, 7, 'KEPEZ', 'KEPEZ', 1, 227),
+(192, 7, 'KONYAALTI', 'KONYAALTI', 1, 227),
+(194, 7, 'KORKUTELİ', 'KORKUTELİ', 1, 227),
+(196, 7, 'KUMLUCA', 'KUMLUCA', 1, 227),
+(198, 7, 'MANAVGAT', 'MANAVGAT', 1, 227),
+(200, 7, 'MURATPAŞA', 'MURATPAŞA', 1, 227),
+(202, 7, 'SERİK', 'SERİK', 1, 227),
+(204, 8, 'ARDANUÇ', 'ARDANUÇ', 1, 227),
+(206, 8, 'ARHAVİ', 'ARHAVİ', 1, 227),
+(208, 8, 'ARTVİN (MERKEZ)', 'ARTVİN (MERKEZ)', 1, 227),
+(210, 8, 'BORÇKA', 'BORÇKA', 1, 227),
+(212, 8, 'HOPA', 'HOPA', 1, 227),
+(215, 8, 'MURGUL(GÖKTAŞ)', 'MURGUL(GÖKTAŞ)', 1, 227),
+(216, 8, 'ŞAVŞAT', 'ŞAVŞAT', 1, 227),
+(217, 8, 'YUSUFELİ', 'YUSUFELİ', 1, 227),
+(218, 8, 'AYDIN (MERKEZ)', 'AYDIN (MERKEZ)', 1, 227),
+(219, 9, 'BOZDOĞAN', 'BOZDOĞAN', 1, 227),
+(220, 9, 'BUHARKENT(ÇUBUKDAĞI)', 'BUHARKENT(ÇUBUKDAĞI)', 1, 227),
+(221, 9, 'ÇİNE', 'ÇİNE', 1, 227),
+(223, 9, 'DİDİM(YENİHİSAR)', 'DİDİM(YENİHİSAR)', 1, 227),
+(224, 9, 'GERMENCİK', 'GERMENCİK', 1, 227),
+(225, 9, 'İNCİRLİOVA', 'İNCİRLİOVA', 1, 227),
+(226, 9, 'KARACASU', 'KARACASU', 1, 227),
+(227, 9, 'KARPUZLU', 'KARPUZLU', 1, 227),
+(228, 9, 'KOÇARLI', 'KOÇARLI', 1, 227),
+(229, 9, 'KÖŞK', 'KÖŞK', 1, 227),
+(230, 9, 'KUŞADASI', 'KUŞADASI', 1, 227),
+(231, 9, 'KUYUCAK', 'KUYUCAK', 1, 227),
+(232, 9, 'NAZİLLİ', 'NAZİLLİ', 1, 227),
+(233, 9, 'SÖKE', 'SÖKE', 1, 227),
+(234, 9, 'SULTANHİSAR', 'SULTANHİSAR', 1, 227),
+(235, 9, 'YENİPAZAR', 'YENİPAZAR', 1, 227),
+(236, 10, 'AYVALIK', 'AYVALIK', 1, 227),
+(237, 8, 'BALIKESİR (MERKEZ)', 'BALIKESİR (MERKEZ)', 1, 227),
+(238, 10, 'BALYA', 'BALYA', 1, 227),
+(239, 10, 'BANDIRMA', 'BANDIRMA', 1, 227),
+(240, 10, 'BİGADİÇ', 'BİGADİÇ', 1, 227),
+(241, 10, 'BURHANİYE', 'BURHANİYE', 1, 227),
+(242, 10, 'DURSUNBEY', 'DURSUNBEY', 1, 227),
+(243, 10, 'EDREMİT', 'EDREMİT', 1, 227),
+(244, 10, 'ERDEK', 'ERDEK', 1, 227),
+(246, 10, 'GÖMEÇ', 'GÖMEÇ', 1, 227),
+(247, 10, 'GÖNEN', 'GÖNEN', 1, 227),
+(248, 10, 'HAVRAN', 'HAVRAN', 1, 227),
+(249, 10, 'İVRİNDİ', 'İVRİNDİ', 1, 227),
+(250, 10, 'KEPSUT', 'KEPSUT', 1, 227),
+(251, 10, 'MANYAS', 'MANYAS', 1, 227),
+(252, 10, 'MARMARA', 'MARMARA', 1, 227),
+(254, 10, 'SAVAŞTEPE', 'SAVAŞTEPE', 1, 227),
+(255, 10, 'SINDIRGI', 'SINDIRGI', 1, 227),
+(256, 10, 'SUSURLUK', 'SUSURLUK', 1, 227),
+(257, 11, 'BİLECİK (MERKEZ)', 'BİLECİK (MERKEZ)', 1, 227),
+(258, 11, 'BOZÜYÜK', 'BOZÜYÜK', 1, 227),
+(259, 11, 'GÖLPAZARI', 'GÖLPAZARI', 1, 227),
+(260, 11, 'İNHİSAR', 'İNHİSAR', 1, 227),
+(261, 11, 'OSMANELİ', 'OSMANELİ', 1, 227),
+(262, 11, 'PAZARYERİ', 'PAZARYERİ', 1, 227),
+(263, 11, 'SÖĞÜT', 'SÖĞÜT', 1, 227),
+(264, 11, 'YENİPAZAR', 'YENİPAZAR    ', 1, 227),
+(265, 12, 'ADAKLI', 'ADAKLI', 1, 227),
+(266, 12, 'BİNGÖL (MERKEZ)', 'BİNGÖL (MERKEZ)', 1, 227),
+(268, 12, 'KIĞI', 'KIĞI', 1, 227),
+(269, 12, 'SOLHAN', 'SOLHAN', 1, 227),
+(270, 12, 'YAYLADERE', 'YAYLADERE', 1, 227),
+(271, 12, 'YEDİSU', 'YEDİSU', 1, 227),
+(272, 13, 'ADİLCEVAZ', 'ADİLCEVAZ', 1, 227),
+(273, 13, 'AHLAT', 'AHLAT', 1, 227),
+(274, 13, 'BİTLİS (MERKEZ)', 'BİTLİS (MERKEZ)', 1, 227),
+(275, 13, 'GÜROYMAK', 'GÜROYMAK', 1, 227),
+(276, 13, 'HİZAN', 'HİZAN', 1, 227),
+(277, 13, 'MUTKİ', 'MUTKİ', 1, 227),
+(278, 13, 'TATVAN', 'TATVAN', 1, 227),
+(279, 14, 'BOLU (MERKEZ)', 'BOLU (MERKEZ)', 1, 227),
+(281, 14, 'GEREDE', 'GEREDE', 1, 227),
+(282, 14, 'GÖYNÜK', 'GÖYNÜK', 1, 227),
+(283, 14, 'KIBRISCIK', 'KIBRISCIK', 1, 227),
+(284, 14, 'MENGEN', 'MENGEN', 1, 227),
+(285, 14, 'MUDURNU', 'MUDURNU', 1, 227),
+(286, 14, 'SEBEN', 'SEBEN', 1, 227),
+(288, 15, 'AĞLASUN', 'AĞLASUN', 1, 227),
+(289, 15, 'ALTINYAYLA(DİRMİL)', 'ALTINYAYLA(DİRMİL)', 1, 227),
+(290, 15, 'BUCAK', 'BUCAK', 1, 227),
+(291, 15, 'BURDUR (MERKEZ)', 'BURDUR (MERKEZ)', 1, 227),
+(292, 15, 'ÇAVDIR', 'ÇAVDIR', 1, 227),
+(293, 15, 'ÇELTİKÇİ', 'ÇELTİKÇİ', 1, 227),
+(294, 15, 'GÖLHİSAR', 'GÖLHİSAR', 1, 227),
+(295, 15, 'KARAMANLI', 'KARAMANLI', 1, 227),
+(296, 15, 'KEMER', 'KEMER', 1, 227),
+(297, 15, 'TEFENNİ', 'TEFENNİ', 1, 227),
+(298, 15, 'YEŞİLOVA    ', 'YEŞİLOVA    ', 1, 227),
+(299, 16, 'BÜYÜKORHAN', 'BÜYÜKORHAN', 1, 227),
+(300, 16, 'GEMLİK', 'GEMLİK', 1, 227),
+(301, 16, 'GÜRSU', 'GÜRSU', 1, 227),
+(302, 16, 'HARMANCIK', 'HARMANCIK', 1, 227),
+(303, 16, 'İNEGÖL', 'İNEGÖL', 1, 227),
+(304, 16, 'İZNİK', 'İZNİK', 1, 227),
+(305, 16, 'KARACABEY', 'KARACABEY', 1, 227),
+(306, 16, 'KELES', 'KELES', 1, 227),
+(308, 16, 'KESTEL', 'KESTEL', 1, 227),
+(309, 16, 'MUDANYA', 'MUDANYA', 1, 227),
+(310, 16, 'MUSTAFAKEMALPAŞA', 'MUSTAFAKEMALPAŞA', 1, 227),
+(311, 16, 'NİLÜFER', 'NİLÜFER', 1, 227),
+(312, 16, 'ORHANELİ', 'ORHANELİ', 1, 227),
+(313, 16, 'ORHANGAZİ', 'ORHANGAZİ', 1, 227),
+(314, 16, 'OSMANGAZİ', 'OSMANGAZİ', 1, 227),
+(315, 16, 'YENİŞEHİR', 'YENİŞEHİR', 1, 227),
+(316, 16, 'YILDIRIM       ', 'YILDIRIM       ', 1, 227),
+(318, 17, 'AYVACIK', 'AYVACIK', 1, 227),
+(319, 17, 'BAYRAMİÇ', 'BAYRAMİÇ', 1, 227),
+(320, 17, 'BİGA', 'BİGA', 1, 227),
+(321, 17, 'BOZCAADA', 'BOZCAADA', 1, 227),
+(322, 17, 'ÇAN', 'ÇAN', 1, 227),
+(323, 17, 'ÇANAKKALE (MERKEZ)', 'ÇANAKKALE (MERKEZ)', 1, 227),
+(324, 17, 'ECEABAT', 'ECEABAT', 1, 227),
+(325, 17, 'EZİNE', 'EZİNE', 1, 227),
+(326, 17, 'GELİBOLU', 'GELİBOLU', 1, 227),
+(327, 17, 'GÖKÇEADA(İMROZ)', 'GÖKÇEADA(İMROZ)', 1, 227),
+(328, 17, 'LAPSEKİ', 'LAPSEKİ', 1, 227),
+(329, 17, 'YENİCE', 'YENİCE', 1, 227),
+(330, 18, 'ATKARACALAR', 'ATKARACALAR', 1, 227),
+(331, 18, 'BAYRAMÖREN', 'BAYRAMÖREN', 1, 227),
+(332, 18, 'ÇANKIRI (MERKEZ)', 'ÇANKIRI (MERKEZ)', 1, 227),
+(333, 18, 'ÇERKEŞ', 'ÇERKEŞ', 1, 227),
+(334, 18, 'ELDİVAN', 'ELDİVAN', 1, 227),
+(335, 18, 'ILGAZ', 'ILGAZ', 1, 227),
+(336, 18, 'KIZILIRMAK', 'KIZILIRMAK', 1, 227),
+(337, 18, 'KORGUN', 'KORGUN', 1, 227),
+(338, 18, 'KURŞUNLU', 'KURŞUNLU', 1, 227),
+(339, 18, 'ORTA', 'ORTA', 1, 227),
+(340, 18, 'ŞABANÖZÜ', 'ŞABANÖZÜ', 1, 227),
+(341, 18, 'YAPRAKLI', 'YAPRAKLI', 1, 227),
+(342, 19, 'ALACA', 'ALACA', 1, 227),
+(343, 19, 'BAYAT', 'BAYAT', 1, 227),
+(344, 19, 'BOĞAZKALE', 'BOĞAZKALE', 1, 227),
+(345, 19, 'ÇORUM (MERKEZ)', 'ÇORUM (MERKEZ)', 1, 227),
+(346, 19, 'DODURGA', 'DODURGA', 1, 227),
+(347, 19, 'İSKİLİP', 'İSKİLİP', 1, 227),
+(348, 19, 'KARGI', 'KARGI', 1, 227),
+(349, 19, 'LAÇİN', 'LAÇİN', 1, 227),
+(350, 19, 'MECİTÖZÜ', 'MECİTÖZÜ', 1, 227),
+(351, 19, 'OĞUZLAR(KARAÖREN)', 'OĞUZLAR(KARAÖREN)', 1, 227),
+(352, 19, 'ORTAKÖY', 'ORTAKÖY', 1, 227),
+(353, 19, 'OSMANCIK', 'OSMANCIK', 1, 227),
+(354, 19, 'SUNGURLU', 'SUNGURLU', 1, 227),
+(355, 19, 'UĞURLUDAĞ ', 'UĞURLUDAĞ ', 1, 227),
+(356, 20, 'ACIPAYAM', 'ACIPAYAM', 1, 227),
+(357, 20, 'AKKÖY', 'AKKÖY', 1, 227),
+(358, 20, 'BABADAĞ', 'BABADAĞ', 1, 227),
+(359, 20, 'BAKLAN', 'BAKLAN', 1, 227),
+(361, 20, 'BEKİLLİ', 'BEKİLLİ', 1, 227),
+(362, 20, 'BEYAĞAÇ', 'BEYAĞAÇ', 1, 227),
+(363, 20, 'BOZKURT', 'BOZKURT', 1, 227),
+(364, 20, 'BULDAN', 'BULDAN', 1, 227),
+(365, 20, 'ÇAL', 'ÇAL', 1, 227),
+(366, 20, 'ÇAMELİ', 'ÇAMELİ', 1, 227),
+(367, 20, 'ÇARDAK', 'ÇARDAK', 1, 227),
+(368, 20, 'ÇİVRİL', 'ÇİVRİL', 1, 227),
+(369, 20, 'DENİZLİ (MERKEZ)', 'DENİZLİ (MERKEZ)', 1, 227),
+(370, 20, 'GÜNEY', 'GÜNEY', 1, 227),
+(371, 20, 'HONAZ', 'HONAZ', 1, 227),
+(372, 20, 'KALE', 'KALE', 1, 227),
+(374, 20, 'SARAYKÖY', 'SARAYKÖY', 1, 227),
+(375, 20, 'SERİNHİSAR', 'SERİNHİSAR', 1, 227),
+(376, 20, 'TAVAS    ', 'TAVAS    ', 1, 227),
+(377, 21, 'BAĞLAR', 'BAĞLAR', 1, 227),
+(378, 21, 'BİSMİL', 'BİSMİL', 1, 227),
+(379, 21, 'ÇERMİK', 'ÇERMİK', 1, 227),
+(380, 21, 'ÇINAR', 'ÇINAR', 1, 227),
+(381, 21, 'ÇÜNGÜŞ', 'ÇÜNGÜŞ', 1, 227),
+(382, 21, 'DİCLE', 'DİCLE', 1, 227),
+(383, 21, 'EĞİL', 'EĞİL', 1, 227),
+(384, 21, 'ERGANİ', 'ERGANİ', 1, 227),
+(385, 21, 'HANİ', 'HANİ', 1, 227),
+(386, 21, 'HAZRO', 'HAZRO', 1, 227),
+(387, 21, 'KAYAPINAR', 'KAYAPINAR', 1, 227),
+(388, 21, 'KOCAKÖY', 'KOCAKÖY', 1, 227),
+(389, 21, 'KULP', 'KULP', 1, 227),
+(390, 21, 'LİCE', 'LİCE', 1, 227),
+(391, 21, 'SİLVAN', 'SİLVAN', 1, 227),
+(393, 21, 'SUR', 'SUR', 1, 227),
+(394, 21, 'YENİŞEHİR', 'YENİŞEHİR', 1, 227),
+(395, 22, 'EDİRNE (MERKEZ)', 'EDİRNE (MERKEZ)', 1, 227),
+(396, 22, 'ENEZ', 'ENEZ', 1, 227),
+(397, 22, 'HAVSA', 'HAVSA', 1, 227),
+(398, 22, 'İPSALA', 'İPSALA', 1, 227),
+(399, 22, 'KEŞAN', 'KEŞAN', 1, 227),
+(400, 22, 'LALAPAŞA', 'LALAPAŞA', 1, 227),
+(401, 22, 'MERİÇ', 'MERİÇ', 1, 227),
+(402, 22, 'SÜLEOĞLU(SÜLOĞLU)', 'SÜLEOĞLU(SÜLOĞLU)', 1, 227),
+(403, 22, 'UZUNKÖPRÜ  ', 'UZUNKÖPRÜ  ', 1, 227),
+(404, 23, 'AĞIN', 'AĞIN', 1, 227),
+(405, 23, 'ALACAKAYA', 'ALACAKAYA', 1, 227),
+(406, 23, 'ARICAK', 'ARICAK', 1, 227),
+(407, 23, 'BASKİL', 'BASKİL', 1, 227),
+(408, 23, 'ELAZIĞ (MERKEZ)', 'ELAZIĞ (MERKEZ)', 1, 227),
+(409, 23, 'KARAKOÇAN', 'KARAKOÇAN', 1, 227),
+(410, 23, 'KEBAN', 'KEBAN', 1, 227),
+(411, 23, 'KOVANCILAR', 'KOVANCILAR', 1, 227),
+(412, 23, 'MADEN', 'MADEN', 1, 227),
+(413, 23, 'PALU', 'PALU', 1, 227),
+(415, 23, 'SİVRİCE ', 'SİVRİCE ', 1, 227),
+(416, 24, 'ÇAYIRLI', 'ÇAYIRLI', 1, 227),
+(417, 24, 'ERZİNCAN (MERKEZ)', 'ERZİNCAN (MERKEZ)', 1, 227),
+(418, 24, 'İLİÇ(ILIÇ)', 'İLİÇ(ILIÇ)', 1, 227),
+(419, 24, 'KEMAH', 'KEMAH', 1, 227),
+(420, 24, 'KEMALİYE', 'KEMALİYE', 1, 227),
+(421, 24, 'OTLUKBELİ', 'OTLUKBELİ', 1, 227),
+(422, 24, 'REFAHİYE', 'REFAHİYE', 1, 227),
+(423, 24, 'TERCAN', 'TERCAN', 1, 227),
+(424, 24, 'ÜZÜMLÜ', 'ÜZÜMLÜ', 1, 227),
+(440, 25, 'KARAÇOBAN', 'KARAÇOBAN', 1, 227),
+(439, 25, 'İSPİR', 'İSPİR', 1, 227),
+(438, 25, 'HORASAN', 'HORASAN', 1, 227),
+(437, 25, 'HINIS', 'HINIS', 1, 227),
+(436, 25, 'ÇAT', 'ÇAT', 1, 227),
+(435, 25, 'AZİZİYE(ILICA)', 'AZİZİYE(ILICA)', 1, 227),
+(434, 25, 'AŞKALE', 'AŞKALE', 1, 227),
+(441, 25, 'KARAYAZI', 'KARAYAZI', 1, 227),
+(442, 25, 'KÖPRÜKÖY', 'KÖPRÜKÖY', 1, 227),
+(443, 25, 'NARMAN', 'NARMAN', 1, 227),
+(444, 25, 'OLTU', 'OLTU', 1, 227),
+(445, 25, 'OLUR', 'OLUR', 1, 227),
+(447, 25, 'PALANDÖKEN', 'PALANDÖKEN', 1, 227),
+(448, 25, 'PASİNLER', 'PASİNLER', 1, 227),
+(449, 25, 'PAZARYOLU', 'PAZARYOLU', 1, 227),
+(450, 25, 'ŞENKAYA', 'ŞENKAYA', 1, 227),
+(451, 25, 'TEKMAN', 'TEKMAN', 1, 227),
+(452, 25, 'TORTUM', 'TORTUM', 1, 227),
+(453, 25, 'UZUNDERE', 'UZUNDERE', 1, 227),
+(454, 25, 'YAKUTİYE   ', 'YAKUTİYE   ', 1, 227),
+(455, 26, 'ALPU', 'ALPU', 1, 227),
+(456, 26, 'BEYLİKOVA', 'BEYLİKOVA', 1, 227),
+(457, 26, 'ÇİFTELER', 'ÇİFTELER', 1, 227),
+(458, 26, 'GÜNYÜZÜ', 'GÜNYÜZÜ', 1, 227),
+(459, 26, 'HAN', 'HAN', 1, 227),
+(460, 26, 'İNÖNÜ', 'İNÖNÜ', 1, 227),
+(461, 26, 'MAHMUDİYE', 'MAHMUDİYE', 1, 227),
+(462, 26, 'MİHALGAZİ', 'MİHALGAZİ', 1, 227),
+(463, 26, 'MİHALIÇCIK', 'MİHALIÇCIK', 1, 227),
+(464, 26, 'ODUNPAZARI', 'ODUNPAZARI', 1, 227),
+(465, 26, 'SARICAKAYA', 'SARICAKAYA', 1, 227),
+(466, 26, 'SEYİTGAZİ', 'SEYİTGAZİ', 1, 227),
+(467, 26, 'SİVRİHİSAR', 'SİVRİHİSAR', 1, 227),
+(468, 26, 'TEPEBAŞI     ', 'TEPEBAŞI     ', 1, 227),
+(469, 27, 'ARABAN', 'ARABAN', 1, 227),
+(470, 27, 'İSLAHİYE', 'İSLAHİYE', 1, 227),
+(471, 27, 'KARKAMIŞ', 'KARKAMIŞ', 1, 227),
+(472, 27, 'NİZİP', 'NİZİP', 1, 227),
+(473, 27, 'NURDAĞI', 'NURDAĞI', 1, 227),
+(474, 27, 'OĞUZELİ', 'OĞUZELİ', 1, 227),
+(475, 27, 'ŞAHİNBEY', 'ŞAHİNBEY', 1, 227),
+(476, 27, 'ŞEHİTKAMİL', 'ŞEHİTKAMİL', 1, 227),
+(477, 27, 'YAVUZELİ', 'YAVUZELİ', 1, 227),
+(478, 28, 'ALUCRA', 'ALUCRA', 1, 227),
+(479, 28, 'BULANCAK', 'BULANCAK', 1, 227),
+(480, 28, 'ÇAMOLUK', 'ÇAMOLUK', 1, 227),
+(481, 28, 'ÇANAKÇI', 'ÇANAKÇI', 1, 227),
+(482, 28, 'DERELİ', 'DERELİ', 1, 227),
+(483, 28, 'DOĞANKENT', 'DOĞANKENT', 1, 227),
+(484, 28, 'ESPİYE', 'ESPİYE', 1, 227),
+(485, 28, 'EYNESİL', 'EYNESİL', 1, 227),
+(486, 28, 'GİRESUN (MERKEZ)', 'GİRESUN (MERKEZ)', 1, 227),
+(487, 28, 'GÖRELE', 'GÖRELE', 1, 227),
+(488, 28, 'GÜCE', 'GÜCE', 1, 227),
+(489, 28, 'KEŞAP', 'KEŞAP', 1, 227),
+(490, 28, 'PİRAZİZ', 'PİRAZİZ', 1, 227),
+(491, 28, 'ŞEBİNKARAHİSAR', 'ŞEBİNKARAHİSAR', 1, 227),
+(492, 28, 'TİREBOLU', 'TİREBOLU', 1, 227),
+(493, 28, 'YAĞLIDERE ', 'YAĞLIDERE ', 1, 227),
+(494, 29, 'GÜMÜŞHANE (MERKEZ)', 'GÜMÜŞHANE (MERKEZ)', 1, 227),
+(495, 29, 'KELKİT', 'KELKİT', 1, 227),
+(496, 29, 'KÖSE', 'KÖSE', 1, 227),
+(497, 29, 'KÜRTÜN', 'KÜRTÜN', 1, 227),
+(498, 29, 'ŞİRAN', 'ŞİRAN', 1, 227),
+(499, 29, 'TORUL  ', 'TORUL  ', 1, 227),
+(500, 30, 'ÇUKURCA', 'ÇUKURCA', 1, 227),
+(501, 30, 'HAKKARİ (MERKEZ)', 'HAKKARİ (MERKEZ)', 1, 227),
+(502, 30, 'ŞEMDİNLİ', 'ŞEMDİNLİ', 1, 227),
+(503, 30, 'YÜKSEKOVA', 'YÜKSEKOVA', 1, 227),
+(504, 31, 'ALTINÖZÜ', 'ALTINÖZÜ', 1, 227),
+(506, 31, 'ANTAKYA', 'ANTAKYA', 1, 227),
+(507, 31, 'BELEN', 'BELEN', 1, 227),
+(508, 31, 'DÖRTYOL', 'DÖRTYOL', 1, 227),
+(509, 31, 'ERZİN', 'ERZİN', 1, 227),
+(510, 31, 'HASSA', 'HASSA', 1, 227),
+(511, 31, 'İSKENDERUN', 'İSKENDERUN', 1, 227),
+(512, 31, 'KIRIKHAN', 'KIRIKHAN', 1, 227),
+(513, 31, 'KUMLU', 'KUMLU', 1, 227),
+(514, 31, 'REYHANLI', 'REYHANLI', 1, 227),
+(515, 31, 'SAMANDAĞ', 'SAMANDAĞ', 1, 227),
+(516, 31, 'YAYLADAĞI', 'YAYLADAĞI', 1, 227),
+(517, 32, 'AKSU', 'AKSU', 1, 227),
+(518, 32, 'ATABEY', 'ATABEY', 1, 227),
+(519, 32, 'EĞRİDİR(EĞİRDİR)', 'EĞRİDİR(EĞİRDİR)', 1, 227),
+(520, 32, 'GELENDOST', 'GELENDOST', 1, 227),
+(521, 32, 'GÖNEN', 'GÖNEN', 1, 227),
+(522, 32, 'ISPARTA (MERKEZ)', 'ISPARTA (MERKEZ)', 1, 227),
+(523, 32, 'KEÇİBORLU', 'KEÇİBORLU', 1, 227),
+(524, 32, 'ŞARKİKARAAĞAÇ', 'ŞARKİKARAAĞAÇ', 1, 227),
+(525, 32, 'SENİRKENT', 'SENİRKENT', 1, 227),
+(526, 32, 'SÜTÇÜLER', 'SÜTÇÜLER', 1, 227),
+(527, 32, 'ULUBORLU', 'ULUBORLU', 1, 227),
+(528, 32, 'YALVAÇ', 'YALVAÇ', 1, 227),
+(529, 32, 'YENİŞARBADEMLİ', 'YENİŞARBADEMLİ', 1, 227),
+(530, 33, 'AKDENİZ', 'AKDENİZ', 1, 0),
+(531, 33, 'AKDENİZ', 'AKDENİZ', 1, 227),
+(532, 33, 'ANAMUR', 'ANAMUR', 1, 227),
+(533, 33, 'AYDINCIK', 'AYDINCIK', 1, 227),
+(534, 33, 'BOZYAZI', 'BOZYAZI', 1, 227),
+(535, 33, 'ÇAMLIYAYLA', 'ÇAMLIYAYLA', 1, 227),
+(536, 33, 'ERDEMLİ', 'ERDEMLİ', 1, 227),
+(537, 33, 'GÜLNAR (GÜLPINAR)', 'GÜLNAR (GÜLPINAR)', 1, 227),
+(538, 33, 'MEZİTLİ', 'MEZİTLİ', 1, 227),
+(539, 33, 'MUT', 'MUT', 1, 227),
+(540, 33, 'SİLİFKE', 'SİLİFKE', 1, 227),
+(541, 33, 'TARSUS', 'TARSUS', 1, 227),
+(542, 33, 'TOROSLAR', 'TOROSLAR', 1, 227),
+(544, 33, 'YENİŞEHİR', 'YENİŞEHİR', 1, 227),
+(545, 34, 'ADALAR', 'ADALAR', 1, 227),
+(546, 34, 'ARNAVUTKÖY', 'ARNAVUTKÖY', 1, 227),
+(547, 34, 'ATAŞEHİR', 'ATAŞEHİR', 1, 227),
+(548, 34, 'AVCILAR', 'AVCILAR', 1, 227),
+(549, 34, 'BAĞCILAR', 'BAĞCILAR', 1, 227),
+(550, 34, 'BAHÇELİEVLER', 'BAHÇELİEVLER', 1, 227),
+(552, 34, 'BAKIRKÖY', 'BAKIRKÖY', 1, 227),
+(553, 34, 'BAŞAKŞEHİR', 'BAŞAKŞEHİR', 1, 227),
+(554, 34, 'BAYRAMPAŞA', 'BAYRAMPAŞA', 1, 227),
+(555, 34, 'BEŞİKTAŞ', 'BEŞİKTAŞ', 1, 227),
+(556, 34, 'BEYKOZ', 'BEYKOZ', 1, 227),
+(557, 34, 'BEYLİKDÜZÜ', 'BEYLİKDÜZÜ', 1, 227),
+(558, 34, 'BEYOĞLU', 'BEYOĞLU', 1, 227),
+(559, 34, 'BÜYÜKÇEKMECE', 'BÜYÜKÇEKMECE', 1, 227),
+(560, 34, 'ÇATALCA', 'ÇATALCA', 1, 227),
+(561, 34, 'ÇEKMEKÖY', 'ÇEKMEKÖY', 1, 227),
+(562, 34, 'ESENLER', 'ESENLER', 1, 227),
+(563, 34, 'ESENYURT', 'ESENYURT', 1, 227),
+(564, 34, 'EYÜP', 'EYÜP', 1, 227),
+(565, 34, 'FATİH', 'FATİH', 1, 227),
+(566, 34, 'GAZİOSMANPAŞA', 'GAZİOSMANPAŞA', 1, 227),
+(567, 34, 'GÜNGÖREN', 'GÜNGÖREN', 1, 227),
+(568, 34, 'KADIKÖY', 'KADIKÖY', 1, 227),
+(569, 34, 'KAĞITHANE', 'KAĞITHANE', 1, 227),
+(570, 34, 'KARTAL', 'KARTAL', 1, 227),
+(571, 34, 'KÜÇÜKÇEKMECE', 'KÜÇÜKÇEKMECE', 1, 227),
+(572, 34, 'MALTEPE', 'MALTEPE', 1, 227),
+(573, 34, 'PENDİK', 'PENDİK', 1, 227),
+(574, 34, 'SANCAKTEPE', 'SANCAKTEPE', 1, 227),
+(575, 34, 'SARIYER', 'SARIYER', 1, 227),
+(576, 34, 'ŞİLE', 'ŞİLE', 1, 227),
+(577, 34, 'SİLİVRİ', 'SİLİVRİ', 1, 227),
+(578, 34, 'ŞİŞLİ', 'ŞİŞLİ', 1, 227),
+(579, 34, 'SULTANBEYLİ', 'SULTANBEYLİ', 1, 227),
+(580, 34, 'SULTANGAZİ', 'SULTANGAZİ', 1, 227),
+(581, 34, 'TUZLA', 'TUZLA', 1, 227),
+(582, 34, 'ÜMRANİYE', 'ÜMRANİYE', 1, 227),
+(583, 34, 'ÜSKÜDAR', 'ÜSKÜDAR', 1, 227),
+(584, 34, 'ZEYTİNBURNU  ', 'ZEYTİNBURNU  ', 1, 227),
+(585, 35, 'ALİAĞA', 'ALİAĞA', 1, 227),
+(586, 35, 'BALÇOVA', 'BALÇOVA', 1, 227),
+(587, 35, 'BAYINDIR', 'BAYINDIR', 1, 227),
+(588, 35, 'BAYRAKLI', 'BAYRAKLI', 1, 227),
+(589, 35, 'BERGAMA', 'BERGAMA', 1, 227),
+(590, 35, 'BEYDAĞ', 'BEYDAĞ', 1, 227),
+(591, 35, 'BORNOVA', 'BORNOVA', 1, 0),
+(592, 35, 'BORNOVA', 'BORNOVA', 1, 227),
+(593, 35, 'BUCA', 'BUCA', 1, 227),
+(595, 35, 'ÇEŞME', 'ÇEŞME', 1, 227),
+(596, 35, 'ÇİĞLİ', 'ÇİĞLİ', 1, 227),
+(597, 35, 'CUMAOVASI(MENDERES)', 'CUMAOVASI(MENDERES)', 1, 227),
+(598, 35, 'DİKİLİ', 'DİKİLİ', 1, 227),
+(599, 35, 'FOÇA', 'FOÇA', 1, 227),
+(601, 35, 'GAZİEMİR', 'GAZİEMİR', 1, 227),
+(602, 35, 'GÜZELBAHÇE', 'GÜZELBAHÇE', 1, 227),
+(603, 35, 'KARABAĞLAR', 'KARABAĞLAR', 1, 227),
+(604, 35, 'KARABURUN', 'KARABURUN', 1, 227),
+(605, 35, 'KARŞIYAKA', 'KARŞIYAKA', 1, 227),
+(606, 35, 'KEMALPAŞA', 'KEMALPAŞA', 1, 227),
+(607, 35, 'KINIK', 'KINIK', 1, 227),
+(608, 35, 'KİRAZ', 'KİRAZ', 1, 227),
+(609, 35, 'KONAK', 'KONAK', 1, 227),
+(610, 35, 'MENEMEN', 'MENEMEN', 1, 227),
+(611, 35, 'NARLIDERE', 'NARLIDERE', 1, 227),
+(612, 35, 'ÖDEMİŞ', 'ÖDEMİŞ', 1, 227),
+(613, 35, 'SEFERİHİSAR', 'SEFERİHİSAR', 1, 227),
+(614, 35, 'SELÇUK', 'SELÇUK', 1, 227),
+(615, 35, 'TİRE', 'TİRE', 1, 227),
+(616, 35, 'TORBALI', 'TORBALI', 1, 227),
+(617, 35, 'URLA', 'URLA', 1, 227),
+(618, 36, 'AKYAKA', 'AKYAKA', 1, 227),
+(619, 36, 'ARPAÇAY', 'ARPAÇAY', 1, 227),
+(620, 36, 'DİGOR', 'DİGOR', 1, 227),
+(621, 36, 'KAĞIZMAN', 'KAĞIZMAN', 1, 227),
+(622, 36, 'KARS (MERKEZ)', 'KARS (MERKEZ)', 1, 227),
+(623, 36, 'SARIKAMIŞ', 'SARIKAMIŞ', 1, 227),
+(624, 36, 'SELİM', 'SELİM', 1, 227),
+(625, 36, 'SUSUZ  ', 'SUSUZ  ', 1, 227),
+(626, 37, 'ABANA', 'ABANA', 1, 227),
+(627, 37, 'AĞLI', 'AĞLI', 1, 227),
+(628, 37, 'ARAÇ', 'ARAÇ', 1, 227),
+(629, 37, 'AZDAVAY', 'AZDAVAY', 1, 227),
+(630, 37, 'BOZKURT', 'BOZKURT', 1, 227),
+(631, 37, 'ÇATALZEYTİN', 'ÇATALZEYTİN', 1, 227),
+(632, 37, 'CİDE', 'CİDE', 1, 227),
+(633, 37, 'DADAY', 'DADAY', 1, 227),
+(634, 37, 'DEVREKANİ', 'DEVREKANİ', 1, 227),
+(635, 37, 'DOĞANYURT', 'DOĞANYURT', 1, 227),
+(636, 37, 'HANÖNÜ(GÖKÇEAĞAÇ)', 'HANÖNÜ(GÖKÇEAĞAÇ)', 1, 227),
+(637, 37, 'İHSANGAZİ', 'İHSANGAZİ', 1, 227),
+(638, 37, 'İNEBOLU', 'İNEBOLU', 1, 227),
+(639, 37, 'KASTAMONU (MERKEZ)', 'KASTAMONU (MERKEZ)', 1, 227),
+(640, 37, 'KÜRE', 'KÜRE', 1, 227),
+(641, 37, 'PINARBAŞI', 'PINARBAŞI', 1, 227),
+(642, 37, 'ŞENPAZAR', 'ŞENPAZAR', 1, 227),
+(643, 37, 'SEYDİLER', 'SEYDİLER', 1, 227),
+(645, 37, 'TAŞKÖPRÜ', 'TAŞKÖPRÜ', 1, 227),
+(646, 37, 'TOSYA ', 'TOSYA ', 1, 227),
+(647, 38, 'AKKIŞLA', 'AKKIŞLA', 1, 227),
+(648, 38, 'BÜNYAN', 'BÜNYAN', 1, 227),
+(649, 38, 'DEVELİ', 'DEVELİ', 1, 227),
+(650, 38, 'FELAHİYE', 'FELAHİYE', 1, 227),
+(651, 38, 'HACILAR', 'HACILAR', 1, 227),
+(652, 38, 'İNCESU', 'İNCESU', 1, 227),
+(653, 38, 'KOCASİNAN', 'KOCASİNAN', 1, 227),
+(654, 38, 'MELİKGAZİ', 'MELİKGAZİ', 1, 227),
+(655, 38, 'ÖZVATAN(ÇUKUR)', 'ÖZVATAN(ÇUKUR)', 1, 227),
+(657, 38, 'SARIOĞLAN', 'SARIOĞLAN', 1, 227),
+(658, 38, 'SARIZ', 'SARIZ', 1, 227),
+(659, 38, 'TALAS', 'TALAS', 1, 227),
+(660, 38, 'TOMARZA', 'TOMARZA', 1, 227),
+(661, 38, 'YAHYALI', 'YAHYALI', 1, 227),
+(662, 38, 'YEŞİLHİSAR', 'YEŞİLHİSAR', 1, 227),
+(663, 39, 'BABAESKİ', 'BABAESKİ', 1, 227),
+(664, 39, 'DEMİRKÖY', 'DEMİRKÖY', 1, 227),
+(665, 39, 'KIRKLARELİ (MERKEZ)', 'KIRKLARELİ (MERKEZ)', 1, 227),
+(666, 39, 'KOFÇAZ', 'KOFÇAZ', 1, 227),
+(667, 39, 'LÜLEBURGAZ', 'LÜLEBURGAZ', 1, 227),
+(668, 39, 'PEHLİVANKÖY', 'PEHLİVANKÖY', 1, 227),
+(669, 39, 'PINARHİSAR', 'PINARHİSAR', 1, 227),
+(670, 39, 'VİZE ', 'VİZE ', 1, 227),
+(671, 40, 'AKÇAKENT', 'AKÇAKENT', 1, 227),
+(672, 40, 'AKPINAR', 'AKPINAR', 1, 227),
+(673, 40, 'BOZTEPE', 'BOZTEPE', 1, 227),
+(674, 40, 'ÇİÇEKDAĞI', 'ÇİÇEKDAĞI', 1, 227),
+(675, 40, 'KAMAN', 'KAMAN', 1, 227),
+(676, 40, 'KIRŞEHİR (MERKEZ)', 'KIRŞEHİR (MERKEZ)', 1, 227),
+(677, 40, 'MUCUR', 'MUCUR', 1, 227),
+(678, 41, 'BAŞİSKELE', 'BAŞİSKELE', 1, 227),
+(679, 41, 'ÇAYIROVA', 'ÇAYIROVA', 1, 227),
+(680, 41, 'DARICA', 'DARICA', 1, 227),
+(682, 41, 'DERİNCE', 'DERİNCE', 1, 227),
+(683, 41, 'DİLOVASI', 'DİLOVASI', 1, 227),
+(684, 41, 'GEBZE', 'GEBZE', 1, 227),
+(685, 41, 'GÖLCÜK', 'GÖLCÜK', 1, 227),
+(686, 41, 'İZMİT', 'İZMİT', 1, 227),
+(687, 41, 'KANDIRA', 'KANDIRA', 1, 227),
+(688, 41, 'KARAMÜRSEL', 'KARAMÜRSEL', 1, 227),
+(689, 41, 'KARTEPE', 'KARTEPE', 1, 227),
+(690, 41, 'TÜTÜNÇİFTLİK', 'TÜTÜNÇİFTLİK', 1, 227),
+(691, 42, 'AHIRLI', 'AHIRLI', 1, 227),
+(692, 42, 'AKÖREN', 'AKÖREN', 1, 227),
+(693, 42, 'AKŞEHİR', 'AKŞEHİR', 1, 227),
+(694, 42, 'ALTINEKİN', 'ALTINEKİN', 1, 227),
+(695, 42, 'BEYŞEHİR', 'BEYŞEHİR', 1, 227),
+(697, 42, 'BOZKIR', 'BOZKIR', 1, 227),
+(698, 42, 'ÇELTİK', 'ÇELTİK', 1, 227),
+(699, 42, 'CİHANBEYLİ', 'CİHANBEYLİ', 1, 227),
+(700, 42, 'ÇUMRA', 'ÇUMRA', 1, 227),
+(701, 42, 'DERBENT', 'DERBENT', 1, 227),
+(702, 42, 'DEREBUCAK', 'DEREBUCAK', 1, 227),
+(703, 42, 'DOĞANHİSAR', 'DOĞANHİSAR', 1, 227),
+(704, 42, 'EMİRGAZİ', 'EMİRGAZİ', 1, 227),
+(705, 42, 'EREĞLİ', 'EREĞLİ', 1, 227),
+(706, 42, 'GÜNEYSINIR', 'GÜNEYSINIR', 1, 227),
+(707, 42, 'HADİM', 'HADİM', 1, 227),
+(708, 42, 'HALKAPINAR', 'HALKAPINAR', 1, 227),
+(709, 42, 'HÜYÜK', 'HÜYÜK', 1, 227),
+(710, 42, 'ILGIN', 'ILGIN', 1, 227),
+(711, 42, 'KADINHANI', 'KADINHANI', 1, 227),
+(712, 42, 'KARAPINAR', 'KARAPINAR', 1, 227),
+(713, 42, 'KARATAY', 'KARATAY', 1, 227),
+(714, 42, 'KULU', 'KULU', 1, 227),
+(715, 42, 'MERAM', 'MERAM', 1, 227),
+(716, 42, 'SARAYÖNÜ', 'SARAYÖNÜ', 1, 227),
+(717, 42, 'SELÇUKLU', 'SELÇUKLU', 1, 227),
+(718, 42, 'SEYDİŞEHİR', 'SEYDİŞEHİR', 1, 227),
+(719, 42, 'TAŞKENT', 'TAŞKENT', 1, 227),
+(720, 42, 'TUZLUKÇU', 'TUZLUKÇU', 1, 227),
+(721, 42, 'YALIHÜYÜK', 'YALIHÜYÜK', 1, 227),
+(722, 42, 'YUNAK', 'YUNAK', 1, 227),
+(723, 43, 'ALTINTAŞ', 'ALTINTAŞ', 1, 227),
+(724, 43, 'ASLANAPA', 'ASLANAPA', 1, 227),
+(725, 43, 'ÇAVDARHİSAR', 'ÇAVDARHİSAR', 1, 227),
+(726, 43, 'DOMANİÇ', 'DOMANİÇ', 1, 227),
+(727, 43, 'DUMLUPINAR', 'DUMLUPINAR', 1, 227),
+(728, 43, 'EMET', 'EMET', 1, 227),
+(729, 43, 'GEDİZ', 'GEDİZ', 1, 227),
+(730, 43, 'HİSARCIK', 'HİSARCIK', 1, 227),
+(731, 43, 'KÜTAHYA (MERKEZ)', 'KÜTAHYA (MERKEZ)', 1, 227),
+(732, 43, 'PAZARLAR', 'PAZARLAR', 1, 227),
+(733, 43, 'ŞAPHANE', 'ŞAPHANE', 1, 227),
+(734, 43, 'SİMAV', 'SİMAV', 1, 227),
+(735, 43, 'TAVŞANLI', 'TAVŞANLI', 1, 227),
+(736, 43, 'TUNÇBİLEK', 'TUNÇBİLEK', 1, 227),
+(737, 44, 'AKÇADAĞ', 'AKÇADAĞ', 1, 227),
+(738, 44, 'ARAPKİR', 'ARAPKİR', 1, 227),
+(739, 44, 'ARGUVAN', 'ARGUVAN', 1, 227),
+(740, 44, 'BATTALGAZİ', 'BATTALGAZİ', 1, 227),
+(741, 44, 'DARENDE', 'DARENDE', 1, 227),
+(743, 44, 'DOĞANŞEHİR', 'DOĞANŞEHİR', 1, 227),
+(744, 44, 'DOĞANYOL', 'DOĞANYOL', 1, 227),
+(745, 44, 'HEKİMHAN', 'HEKİMHAN', 1, 227),
+(746, 44, 'KALE', 'KALE', 1, 227),
+(747, 44, 'KULUNCAK', 'KULUNCAK', 1, 227),
+(748, 43, 'MALATYA (MERKEZ)', 'MALATYA (MERKEZ)', 1, 227),
+(749, 44, 'PÖTÜRGE', 'PÖTÜRGE', 1, 227),
+(750, 44, 'YAZIHAN', 'YAZIHAN', 1, 227),
+(751, 44, 'YEŞİLYURT', 'YEŞİLYURT', 1, 227),
+(752, 45, 'AHMETLİ', 'AHMETLİ', 1, 227),
+(753, 45, 'AKHİSAR', 'AKHİSAR', 1, 227),
+(754, 45, 'ALAŞEHİR', 'ALAŞEHİR', 1, 227),
+(755, 45, 'DEMİRCİ', 'DEMİRCİ', 1, 227),
+(756, 45, 'GÖLMARMARA', 'GÖLMARMARA', 1, 227),
+(757, 45, 'GÖRDES', 'GÖRDES', 1, 227),
+(758, 45, 'KIRKAĞAÇ', 'KIRKAĞAÇ', 1, 227),
+(759, 45, 'KÖPRÜBAŞI', 'KÖPRÜBAŞI', 1, 227),
+(760, 45, 'KULA', 'KULA', 1, 227),
+(761, 45, 'MANİSA (MERKEZ)', 'MANİSA (MERKEZ)', 1, 227),
+(762, 45, 'SALİHLİ', 'SALİHLİ', 1, 227),
+(763, 45, 'SARIGÖL', 'SARIGÖL', 1, 227),
+(764, 45, 'SARUHANLI', 'SARUHANLI', 1, 227),
+(765, 45, 'SELENDİ', 'SELENDİ', 1, 227),
+(766, 45, 'SOMA', 'SOMA', 1, 227),
+(767, 45, 'TURGUTLU', 'TURGUTLU', 1, 227),
+(768, 46, 'AFŞİN', 'AFŞİN', 1, 227),
+(769, 46, 'ANDIRIN', 'ANDIRIN', 1, 227),
+(770, 46, 'ÇAĞLAYANCERİT', 'ÇAĞLAYANCERİT', 1, 227),
+(771, 46, 'EKİNÖZÜ', 'EKİNÖZÜ', 1, 227),
+(773, 46, 'ELBİSTAN', 'ELBİSTAN', 1, 227),
+(775, 46, 'GÖKSUN', 'GÖKSUN', 1, 227),
+(776, 46, 'KAHRAMANMARAŞ (MERKEZ)', 'KAHRAMANMARAŞ (MERKEZ)', 1, 227),
+(777, 46, 'NURHAK', 'NURHAK', 1, 227),
+(778, 46, 'PAZARCIK', 'PAZARCIK', 1, 227),
+(779, 46, 'TÜRKOĞLU  ', 'TÜRKOĞLU  ', 1, 227),
+(780, 47, 'DARGEÇİT', 'DARGEÇİT', 1, 227),
+(781, 47, 'DERİK', 'DERİK', 1, 227),
+(783, 47, 'KIZILTEPE', 'KIZILTEPE', 1, 227),
+(784, 47, 'MARDİN (MERKEZ)', 'MARDİN (MERKEZ)', 1, 227),
+(785, 47, 'MAZIDAĞI', 'MAZIDAĞI', 1, 227),
+(786, 47, 'MİDYAT(ESTEL)', 'MİDYAT(ESTEL)', 1, 227),
+(787, 47, 'NUSAYBİN', 'NUSAYBİN', 1, 227),
+(788, 47, 'ÖMERLİ', 'ÖMERLİ', 1, 227),
+(789, 47, 'SAVUR', 'SAVUR', 1, 227),
+(790, 47, 'YEŞİLLİ', 'YEŞİLLİ', 1, 227),
+(791, 48, 'BODRUM', 'BODRUM', 1, 227),
+(792, 48, 'DALAMAN', 'DALAMAN', 1, 227),
+(793, 48, 'DATÇA', 'DATÇA', 1, 227),
+(794, 48, 'FETHİYE', 'FETHİYE', 1, 227),
+(795, 48, 'KAVAKLIDERE', 'KAVAKLIDERE', 1, 227),
+(796, 48, 'KÖYCEĞİZ', 'KÖYCEĞİZ', 1, 227),
+(797, 48, 'MARMARİS', 'MARMARİS', 1, 227),
+(798, 48, 'MİLAS', 'MİLAS', 1, 227),
+(799, 48, 'MUĞLA (MERKEZ)', 'MUĞLA (MERKEZ)', 1, 227),
+(800, 48, 'ORTACA', 'ORTACA', 1, 227),
+(801, 48, 'ULA', 'ULA', 1, 227),
+(802, 48, 'YATAĞAN  ', 'YATAĞAN  ', 1, 227),
+(803, 49, 'BULANIK', 'BULANIK', 1, 227),
+(804, 49, 'HASKÖY', 'HASKÖY', 1, 227),
+(805, 49, 'KORKUT', 'KORKUT', 1, 227),
+(806, 49, 'MALAZGİRT', 'MALAZGİRT', 1, 227),
+(807, 49, 'MUŞ (MERKEZ)', 'MUŞ (MERKEZ)', 1, 227),
+(808, 49, 'VARTO', 'VARTO', 1, 227),
+(809, 50, 'ACIGÖL', 'ACIGÖL', 1, 227),
+(810, 50, 'AVANOS', 'AVANOS', 1, 227),
+(811, 50, 'DERİNKUYU', 'DERİNKUYU', 1, 227),
+(812, 50, 'GÜLŞEHİR', 'GÜLŞEHİR', 1, 227),
+(813, 50, 'HACIBEKTAŞ', 'HACIBEKTAŞ', 1, 227),
+(814, 50, 'KOZAKLI', 'KOZAKLI', 1, 227),
+(815, 50, 'NEVŞEHİR (MERKEZ)', 'NEVŞEHİR (MERKEZ)', 1, 227),
+(816, 50, 'ÜRGÜP', 'ÜRGÜP', 1, 227),
+(817, 51, 'ALTUNHİSAR', 'ALTUNHİSAR', 1, 227),
+(818, 51, 'BOR', 'BOR', 1, 227),
+(819, 51, 'ÇAMARDI', 'ÇAMARDI', 1, 227),
+(820, 51, 'ÇİFTLİK(ÖZYURT)', 'ÇİFTLİK(ÖZYURT)', 1, 227),
+(821, 51, 'NİĞDE (MERKEZ)', 'NİĞDE (MERKEZ)', 1, 227),
+(822, 51, 'ULUKIŞLA    ', 'ULUKIŞLA    ', 1, 227),
+(823, 52, 'AKKUŞ', 'AKKUŞ', 1, 227),
+(824, 52, 'AYBASTI', 'AYBASTI', 1, 227),
+(825, 52, 'ÇAMAŞ', 'ÇAMAŞ', 1, 227),
+(826, 52, 'ÇATALPINAR', 'ÇATALPINAR', 1, 227),
+(827, 52, 'ÇAYBAŞI', 'ÇAYBAŞI', 1, 227),
+(828, 52, 'FATSA', 'FATSA', 1, 227),
+(829, 52, 'GÖLKÖY', 'GÖLKÖY', 1, 227),
+(830, 52, 'GÜLYALI', 'GÜLYALI', 1, 227),
+(831, 52, 'GÜRGENTEPE', 'GÜRGENTEPE', 1, 227),
+(832, 52, 'İKİZCE', 'İKİZCE', 1, 227),
+(833, 52, 'KABATAŞ', 'KABATAŞ', 1, 227),
+(834, 52, 'KARADÜZ(KABADÜZ)', 'KARADÜZ(KABADÜZ)', 1, 227),
+(835, 52, 'KORGAN', 'KORGAN', 1, 227),
+(836, 52, 'KUMRU', 'KUMRU', 1, 227),
+(837, 52, 'MESUDİYE', 'MESUDİYE', 1, 227),
+(838, 52, 'ORDU (MERKEZ)', 'ORDU (MERKEZ)', 1, 227),
+(839, 52, 'PERŞEMBE', 'PERŞEMBE', 1, 227),
+(840, 52, 'ULUBEY', 'ULUBEY', 1, 227),
+(841, 52, 'ÜNYE', 'ÜNYE', 1, 227),
+(842, 53, 'ARDEŞEN', 'ARDEŞEN', 1, 227),
+(843, 53, 'ÇAMLIHEMŞİN', 'ÇAMLIHEMŞİN', 1, 227),
+(844, 53, 'ÇAYELİ', 'ÇAYELİ', 1, 227),
+(845, 53, 'DEREPAZARI', 'DEREPAZARI', 1, 227),
+(846, 53, 'FINDIKLI', 'FINDIKLI', 1, 227),
+(847, 53, 'GÜNEYSU', 'GÜNEYSU', 1, 227),
+(848, 53, 'HEMŞİN', 'HEMŞİN', 1, 227),
+(849, 53, 'İKİZDERE', 'İKİZDERE', 1, 227),
+(850, 53, 'İYİDERE', 'İYİDERE', 1, 227),
+(851, 53, 'KALKANDERE', 'KALKANDERE', 1, 227),
+(852, 53, 'PAZAR', 'PAZAR', 1, 227),
+(853, 53, 'RİZE (MERKEZ', 'RİZE (MERKEZ', 1, 227),
+(854, 54, 'ADAPAZARI', 'ADAPAZARI', 1, 227),
+(855, 54, 'AKYAZI', 'AKYAZI', 1, 227),
+(856, 54, 'ARİFİYE', 'ARİFİYE', 1, 227),
+(857, 54, 'ERENLER', 'ERENLER', 1, 227),
+(858, 54, 'FERİZLİ', 'FERİZLİ', 1, 227),
+(859, 54, 'GEYVE', 'GEYVE', 1, 227),
+(860, 54, 'HENDEK', 'HENDEK', 1, 227),
+(861, 54, 'KARAPÜRÇEK', 'KARAPÜRÇEK', 1, 227),
+(862, 54, 'KARASU', 'KARASU', 1, 227),
+(863, 54, 'KAYNARCA', 'KAYNARCA', 1, 227),
+(864, 54, 'KOCAALİ', 'KOCAALİ', 1, 227),
+(865, 54, 'PAMUKOVA', 'PAMUKOVA', 1, 227),
+(866, 54, 'SAPANCA', 'SAPANCA', 1, 227),
+(867, 54, 'SERDİVAN', 'SERDİVAN', 1, 227),
+(868, 54, 'SÖĞÜTLÜ', 'SÖĞÜTLÜ', 1, 227),
+(870, 56, 'AYDINLAR', 'AYDINLAR', 1, 227),
+(871, 56, 'BAYKAN', 'BAYKAN', 1, 227),
+(872, 56, 'ERUH', 'ERUH', 1, 227),
+(873, 56, 'KURTALAN', 'KURTALAN', 1, 227),
+(874, 56, 'PERVARİ', 'PERVARİ', 1, 227),
+(875, 56, 'SİİRT (MERKEZ)', 'SİİRT (MERKEZ)', 1, 227),
+(877, 56, 'ŞİRVAN', 'ŞİRVAN', 1, 227),
+(878, 57, 'AYANCIK', 'AYANCIK', 1, 227),
+(879, 57, 'BOYABAT', 'BOYABAT', 1, 227),
+(880, 57, 'DİKMEN', 'DİKMEN', 1, 227),
+(881, 58, 'DURAĞAN', 'DURAĞAN', 1, 227),
+(882, 57, 'ERFELEK', 'ERFELEK', 1, 227),
+(883, 57, 'GERZE', 'GERZE', 1, 227),
+(884, 58, 'SARAYDÜZÜ', 'SARAYDÜZÜ', 1, 227),
+(885, 57, 'SİNOP (MERKEZ)', 'SİNOP (MERKEZ)', 1, 227),
+(886, 57, 'TÜRKELİ', 'TÜRKELİ', 1, 227),
+(887, 58, 'AKINCILAR', 'AKINCILAR', 1, 227),
+(888, 58, 'ALTINYAYLA', 'ALTINYAYLA', 1, 227),
+(889, 58, 'DİVRİĞİ', 'DİVRİĞİ', 1, 227),
+(890, 58, 'DOĞANŞAR', 'DOĞANŞAR', 1, 227),
+(891, 58, 'GEMEREK', 'GEMEREK', 1, 227),
+(892, 58, 'GÖLOVA', 'GÖLOVA', 1, 227),
+(893, 58, 'GÜRÜN', 'GÜRÜN', 1, 227),
+(894, 58, 'HAFİK', 'HAFİK', 1, 227),
+(895, 58, 'İMRANLI', 'İMRANLI', 1, 227),
+(896, 58, 'KANGAL', 'KANGAL', 1, 227),
+(897, 58, 'KOYULHİSAR', 'KOYULHİSAR', 1, 227),
+(898, 58, 'ŞARKIŞLA', 'ŞARKIŞLA', 1, 227),
+(899, 58, 'SİVAS (MERKEZ)', 'SİVAS (MERKEZ)', 1, 227),
+(900, 58, 'SUŞEHRİ', 'SUŞEHRİ', 1, 227),
+(901, 58, 'ULAŞ', 'ULAŞ', 1, 227),
+(902, 58, 'YILDIZELİ', 'YILDIZELİ', 1, 227),
+(903, 58, 'ZARA    ', 'ZARA    ', 1, 227),
+(904, 59, 'ÇERKEZKÖY', 'ÇERKEZKÖY', 1, 227),
+(905, 59, 'ÇORLU', 'ÇORLU', 1, 227),
+(906, 59, 'HAYRABOLU', 'HAYRABOLU', 1, 227),
+(907, 59, 'MALKARA', 'MALKARA', 1, 227),
+(908, 59, 'MARMARAEREĞLİSİ', 'MARMARAEREĞLİSİ', 1, 227),
+(909, 59, 'MURATLI', 'MURATLI', 1, 227),
+(910, 59, 'SARAY', 'SARAY', 1, 227),
+(911, 59, 'ŞARKÖY', 'ŞARKÖY', 1, 227),
+(912, 59, 'TEKİRDAĞ (MERKEZ)', 'TEKİRDAĞ (MERKEZ)', 1, 227),
+(913, 61, 'AKÇAABAT', 'AKÇAABAT', 1, 227),
+(914, 61, 'ARAKLI', 'ARAKLI', 1, 227),
+(915, 61, 'ARSİN', 'ARSİN', 1, 227),
+(916, 61, 'BEŞİKDÜZÜ', 'BEŞİKDÜZÜ', 1, 227),
+(917, 61, 'ÇARŞIBAŞI', 'ÇARŞIBAŞI', 1, 227),
+(918, 61, 'ÇAYKARA', 'ÇAYKARA', 1, 227),
+(919, 61, 'DERNEKPAZARI', 'DERNEKPAZARI', 1, 227),
+(920, 61, 'DÜZKÖY', 'DÜZKÖY', 1, 227),
+(921, 61, 'HAYRAT', 'HAYRAT', 1, 227),
+(922, 61, 'KÖPRÜBAŞI', 'KÖPRÜBAŞI', 1, 227),
+(923, 61, 'MAÇKA', 'MAÇKA', 1, 227),
+(924, 61, 'OF', 'OF', 1, 227),
+(925, 61, 'ŞALPAZARI', 'ŞALPAZARI', 1, 227),
+(926, 61, 'SÜRMENE', 'SÜRMENE', 1, 227),
+(927, 61, 'TONYA', 'TONYA', 1, 227),
+(928, 61, 'TRABZON (MERKEZ)', 'TRABZON (MERKEZ)', 1, 227),
+(929, 61, 'VAKFIKEBİR', 'VAKFIKEBİR', 1, 227),
+(930, 61, 'YOMRA', 'YOMRA', 1, 227),
+(931, 60, 'ALMUS', 'ALMUS', 1, 227),
+(932, 60, 'ARTOVA', 'ARTOVA', 1, 227),
+(933, 60, 'BAŞÇİFTLİK', 'BAŞÇİFTLİK', 1, 227),
+(934, 60, 'ERBAA', 'ERBAA', 1, 227),
+(935, 60, 'NİKSAR', 'NİKSAR', 1, 227),
+(936, 60, 'PAZAR', 'PAZAR', 1, 227),
+(937, 60, 'REŞADİYE', 'REŞADİYE', 1, 227),
+(938, 60, 'SULUSARAY', 'SULUSARAY', 1, 227),
+(939, 60, 'TOKAT (MERKEZ)', 'TOKAT (MERKEZ)', 1, 227),
+(940, 60, 'TURHAL', 'TURHAL', 1, 227),
+(941, 60, 'YEŞİLYURT', 'YEŞİLYURT', 1, 227),
+(942, 60, 'ZİLE', 'ZİLE', 1, 227),
+(943, 62, 'ÇEMİŞGEZEK', 'ÇEMİŞGEZEK', 1, 227),
+(944, 62, 'HOZAT', 'HOZAT', 1, 227),
+(945, 62, 'MAZGİRT', 'MAZGİRT', 1, 227),
+(946, 62, 'NAZIMİYE', 'NAZIMİYE', 1, 227),
+(947, 62, 'OVACIK', 'OVACIK', 1, 227),
+(948, 62, 'PERTEK', 'PERTEK', 1, 227),
+(949, 62, 'PÜLÜMÜR', 'PÜLÜMÜR', 1, 227),
+(950, 61, 'TUNCELİ (MERKEZ)', 'TUNCELİ (MERKEZ)', 1, 227),
+(951, 63, 'AKÇAKALE', 'AKÇAKALE', 1, 227),
+(952, 63, 'BİRECİK', 'BİRECİK', 1, 227),
+(953, 63, 'BOZOVA', 'BOZOVA', 1, 227),
+(954, 63, 'CEYLANPINAR', 'CEYLANPINAR', 1, 227),
+(955, 63, 'HALFETİ', 'HALFETİ', 1, 227),
+(956, 63, 'HARRAN', 'HARRAN', 1, 227),
+(957, 63, 'HİLVAN', 'HİLVAN', 1, 227),
+(958, 63, 'ŞANLIURFA (MERKEZ)', 'ŞANLIURFA (MERKEZ)', 1, 227),
+(959, 63, 'SİVEREK', 'SİVEREK', 1, 227),
+(960, 63, 'SURUÇ', 'SURUÇ', 1, 227),
+(961, 63, 'VİRANŞEHİR', 'VİRANŞEHİR', 1, 227),
+(962, 64, 'BANAZ', 'BANAZ', 1, 227),
+(964, 64, 'EŞME', 'EŞME', 1, 227),
+(965, 64, 'KARAHALLI', 'KARAHALLI', 1, 227),
+(966, 64, 'SİVASLI', 'SİVASLI', 1, 227),
+(967, 64, 'ULUBEY', 'ULUBEY', 1, 227),
+(968, 64, 'UŞAK (MERKEZ)', 'UŞAK (MERKEZ)', 1, 227),
+(969, 65, 'BAHÇESARAY', 'BAHÇESARAY', 1, 227),
+(970, 65, 'BAŞKALE', 'BAŞKALE', 1, 227),
+(971, 64, 'ÇALDIRAN', 'ÇALDIRAN', 1, 227),
+(972, 65, 'ÇATAK', 'ÇATAK', 1, 227),
+(973, 65, 'EDREMİT(GÜMÜŞDERE)', 'EDREMİT(GÜMÜŞDERE)', 1, 227),
+(974, 65, 'ERCİŞ', 'ERCİŞ', 1, 227),
+(975, 65, 'GEVAŞ', 'GEVAŞ', 1, 227),
+(976, 65, 'GÜRPINAR', 'GÜRPINAR', 1, 227),
+(977, 65, 'MURADİYE', 'MURADİYE', 1, 227),
+(978, 65, 'ÖZALP', 'ÖZALP', 1, 227),
+(979, 65, 'SARAY', 'SARAY', 1, 227),
+(980, 65, 'VAN (MERKEZ)', 'VAN (MERKEZ)', 1, 227),
+(981, 66, 'AKDAĞMADENİ', 'AKDAĞMADENİ', 1, 227),
+(982, 66, 'AYDINCIK', 'AYDINCIK', 1, 227),
+(983, 66, 'BOĞAZLIYAN', 'BOĞAZLIYAN', 1, 227),
+(984, 66, 'ÇANDIR', 'ÇANDIR', 1, 227),
+(985, 66, 'ÇAYIRALAN', 'ÇAYIRALAN', 1, 227),
+(986, 66, 'ÇEKEREK', 'ÇEKEREK', 1, 227),
+(987, 66, 'KADIŞEHRİ', 'KADIŞEHRİ', 1, 227),
+(988, 66, 'SARAYKENT', 'SARAYKENT', 1, 227),
+(989, 66, 'SARIKAYA', 'SARIKAYA', 1, 227),
+(990, 66, 'ŞEFAATLİ', 'ŞEFAATLİ', 1, 227),
+(991, 66, 'SORGUN', 'SORGUN', 1, 227),
+(992, 66, 'YENİFAKILI', 'YENİFAKILI', 1, 227),
+(993, 66, 'YERKÖY', 'YERKÖY', 1, 227),
+(994, 66, 'YOZGAT (MERKEZ)', 'YOZGAT (MERKEZ)', 1, 227),
+(995, 67, 'ALAPLI', 'ALAPLI', 1, 227),
+(996, 67, 'ÇAYCUMA', 'ÇAYCUMA', 1, 227),
+(997, 67, 'DEVREK', 'DEVREK', 1, 227),
+(998, 67, 'GÖKÇEBEY', 'GÖKÇEBEY', 1, 227),
+(999, 67, 'KARADENİZEREĞLİ', 'KARADENİZEREĞLİ', 1, 227),
+(1000, 67, 'ZONGULDAK (MERKEZ)', 'ZONGULDAK (MERKEZ)', 1, 227),
+(1001, 68, 'AĞAÇÖREN', 'AĞAÇÖREN', 1, 227),
+(1002, 68, 'AKSARAY (MERKEZ)', 'AKSARAY (MERKEZ)', 1, 227),
+(1003, 68, 'ESKİL', 'ESKİL', 1, 227),
+(1004, 68, 'GÜLAĞAÇ(AĞAÇLI)', 'GÜLAĞAÇ(AĞAÇLI)', 1, 227),
+(1005, 68, 'GÜZELYURT', 'GÜZELYURT', 1, 227),
+(1006, 68, 'ORTAKÖY', 'ORTAKÖY', 1, 227),
+(1007, 68, 'SARIYAHŞİ', 'SARIYAHŞİ', 1, 227),
+(1008, 69, 'AYDINTEPE', 'AYDINTEPE', 1, 227),
+(1009, 69, 'BAYBURT (MERKEZ)', 'BAYBURT (MERKEZ)', 1, 227),
+(1010, 69, 'DEMİRÖZÜ', 'DEMİRÖZÜ', 1, 227),
+(1011, 70, 'AYRANCI', 'AYRANCI', 1, 227),
+(1012, 70, 'BAŞYAYLA', 'BAŞYAYLA', 1, 227),
+(1013, 70, 'ERMENEK', 'ERMENEK', 1, 227),
+(1014, 70, 'KARAMAN (MERKEZ)', 'KARAMAN (MERKEZ)', 1, 227),
+(1015, 70, 'KAZIMKARABEKİR', 'KAZIMKARABEKİR', 1, 227),
+(1016, 70, 'SARIVELİLER', 'SARIVELİLER', 1, 227),
+(1017, 71, 'BAHŞİLİ', 'BAHŞİLİ', 1, 227),
+(1018, 71, 'BALIŞEYH', 'BALIŞEYH', 1, 227),
+(1019, 71, 'ÇELEBİ', 'ÇELEBİ', 1, 227),
+(1020, 71, 'DELİCE', 'DELİCE', 1, 227),
+(1021, 71, 'KARAKEÇİLİ', 'KARAKEÇİLİ', 1, 227),
+(1022, 71, 'KESKİN', 'KESKİN', 1, 227),
+(1023, 71, 'KIRIKKALE (MERKEZ)', 'KIRIKKALE (MERKEZ)', 1, 227),
+(1024, 71, 'SULAKYURT', 'SULAKYURT', 1, 227),
+(1025, 71, 'YAHŞİHAN', 'YAHŞİHAN', 1, 227),
+(1026, 72, 'BATMAN (MERKEZ)', 'BATMAN (MERKEZ)', 1, 227),
+(1027, 72, 'BEŞİRİ', 'BEŞİRİ', 1, 227),
+(1028, 72, 'GERCÜŞ', 'GERCÜŞ', 1, 227),
+(1029, 72, 'HASANKEYF', 'HASANKEYF', 1, 227),
+(1030, 72, 'KOZLUK', 'KOZLUK', 1, 227),
+(1031, 72, 'SASON', 'SASON', 1, 227),
+(1032, 73, 'BEYTÜŞŞEBAP', 'BEYTÜŞŞEBAP', 1, 227),
+(1033, 73, 'CİZRE', 'CİZRE', 1, 227),
+(1034, 73, 'GÜÇLÜKONAK', 'GÜÇLÜKONAK', 1, 227),
+(1035, 73, 'İDİL', 'İDİL', 1, 227),
+(1036, 73, 'SİLOPİ', 'SİLOPİ', 1, 227),
+(1037, 73, 'ŞIRNAK (MERKEZ)', 'ŞIRNAK (MERKEZ)', 1, 227),
+(1038, 73, 'ULUDERE', 'ULUDERE', 1, 227),
+(1039, 74, 'AMASRA', 'AMASRA', 1, 227),
+(1040, 74, 'BARTIN (MERKEZ)', 'BARTIN (MERKEZ)', 1, 227),
+(1041, 74, 'KURUCAŞİLE', 'KURUCAŞİLE', 1, 227),
+(1042, 74, 'ULUS', 'ULUS', 1, 227),
+(1043, 75, 'ARDAHAN (MERKEZ)', 'ARDAHAN (MERKEZ)', 1, 227),
+(1044, 75, 'ÇILDIR', 'ÇILDIR', 1, 227),
+(1045, 75, 'DAMAL', 'DAMAL', 1, 227),
+(1046, 75, 'GÖLE', 'GÖLE', 1, 227),
+(1047, 75, 'HANAK', 'HANAK', 1, 227),
+(1048, 75, 'POSOF', 'POSOF', 1, 227),
+(1049, 76, 'ARALIK', 'ARALIK', 1, 227),
+(1050, 76, 'IĞDIR (MERKEZ)', 'IĞDIR (MERKEZ)', 1, 227),
+(1051, 76, 'KARAKOYUNLU', 'KARAKOYUNLU', 1, 227),
+(1052, 76, 'TUZLUCA ', 'TUZLUCA ', 1, 227),
+(1053, 77, 'ALTINOVA', 'ALTINOVA', 1, 227),
+(1054, 77, 'ARMUTLU', 'ARMUTLU', 1, 227),
+(1055, 77, 'ÇİFTLİKKÖY', 'ÇİFTLİKKÖY', 1, 227),
+(1056, 77, 'ÇINARCIK', 'ÇINARCIK', 1, 227),
+(1057, 77, 'TERMAL', 'TERMAL', 1, 227),
+(1058, 77, 'YALOVA (MERKEZ)', 'YALOVA (MERKEZ)', 1, 227),
+(1059, 78, 'EFLANİ', 'EFLANİ', 1, 227),
+(1060, 78, 'ESKİPAZAR', 'ESKİPAZAR', 1, 227),
+(1061, 78, 'KARABÜK (MERKEZ)', 'KARABÜK (MERKEZ)', 1, 227),
+(1062, 78, 'OVACIK', 'OVACIK', 1, 227),
+(1063, 78, 'SAFRANBOLU', 'SAFRANBOLU', 1, 227),
+(1064, 78, 'YENİCE', 'YENİCE', 1, 227),
+(1065, 79, 'ELBEYLİ', 'ELBEYLİ', 1, 227),
+(1066, 79, 'KİLİS (MERKEZ)', 'KİLİS (MERKEZ)', 1, 227),
+(1067, 79, 'MUSABEYLİ', 'MUSABEYLİ', 1, 227),
+(1068, 79, 'POLATELİ', 'POLATELİ', 1, 227),
+(1069, 80, 'BAHÇE', 'BAHÇE', 1, 227),
+(1070, 80, 'DÜZİÇİ', 'DÜZİÇİ', 1, 227),
+(1071, 80, 'HASANBEYLİ', 'HASANBEYLİ', 1, 227),
+(1072, 80, 'KADİRLİ', 'KADİRLİ', 1, 227),
+(1073, 80, 'OSMANİYE (MERKEZ)', 'OSMANİYE (MERKEZ)', 1, 227),
+(1074, 80, 'SUMBAS', 'SUMBAS', 1, 227),
+(1075, 80, 'TOPRAKKALE', 'TOPRAKKALE', 1, 227),
+(1076, 81, 'AKÇAKOCA', 'AKÇAKOCA', 1, 227),
+(1077, 81, 'ÇİLİMLİ', 'ÇİLİMLİ', 1, 227),
+(1078, 81, 'CUMAYERİ', 'CUMAYERİ', 1, 227),
+(1079, 81, 'DÜZCE (MERKEZ)', 'DÜZCE (MERKEZ)', 1, 227),
+(1080, 81, 'GÖLYAKA', 'GÖLYAKA', 1, 227),
+(1081, 81, 'GÜMÜŞOVA', 'GÜMÜŞOVA', 1, 227),
+(1082, 81, 'KAYNAŞLI', 'KAYNAŞLI', 1, 227),
+(1087, 1, 'KURUKÖPRÜ', 'KURUKÖPRÜ', 1, 227),
+(1084, 81, 'YIĞILCA', 'YIĞILCA', 1, 227);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `city_old`
+--
+
+CREATE TABLE IF NOT EXISTS `city_old` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `state_id` int(10) unsigned DEFAULT NULL,
+  `city_English` varchar(255) DEFAULT NULL,
+  `city_Turkish` varchar(255) NOT NULL DEFAULT '',
+  `status` tinyint(3) unsigned DEFAULT NULL,
+  `country_id` int(10) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`),
+  KEY `id_2` (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=155 ;
+
+--
+-- Dumping data for table `city_old`
+--
+
+INSERT INTO `city_old` (`id`, `state_id`, `city_English`, `city_Turkish`, `status`, `country_id`) VALUES
+(90, 185, 'Bellapais', 'Bellapais', 1, 241),
+(89, 185, 'AÅŸaÄŸÄ± Girne', 'AÅŸaÄŸÄ± Girne', 1, 241),
+(120, 187, 'hamitkÃ¶y', 'hamitkÃ¶y', 1, 241),
+(119, 187, 'gÃ¶nyeli', 'gÃ¶nyeli', 1, 241),
+(118, 187, 'gÃ¶Ã§menkÃ¶y', 'gÃ¶Ã§menkÃ¶y', 1, 241),
+(117, 187, 'dumlu pÄ±nar', 'dumlu pÄ±nar', 1, 241),
+(116, 187, 'dere boyu', 'dere boyu', 1, 241),
+(34, 0, 'Istanbul', 'Ä°stanbul', 1, 227),
+(115, 187, 'Ã§aÄŸlayan bÃ¶l.', 'Ã§aÄŸlayan bÃ¶l.', 1, 241),
+(114, 187, 'arabahmet', 'arabahmet', 1, 241),
+(106, 185, 'Zeytinlik', 'Zeytinlik', 1, 241),
+(105, 185, 'YukarÄ± Girne', 'YukarÄ± Girne', 1, 241),
+(104, 185, 'OzankÃ¶y', 'OzankÃ¶y', 1, 241),
+(103, 185, 'Maramonte', 'Maramonte', 1, 241),
+(102, 185, 'Malatya', 'Malatya', 1, 241),
+(101, 185, 'Lapta', 'Lapta', 1, 241),
+(100, 185, 'KarÅŸÄ±yaka', 'KarÅŸÄ±yaka', 1, 241),
+(99, 185, 'Karmi', 'Karmi', 1, 241),
+(98, 185, 'Karakum', 'Karakum', 1, 241),
+(97, 185, 'K.oÄŸlanoÄŸlu Tempo SonrasÄ±', 'K.oÄŸlanoÄŸlu Tempo SonrasÄ±', 1, 241),
+(96, 185, 'K.oÄŸlanoÄŸlu Tempo Ã–ncesi', 'K.oÄŸlanoÄŸlu Tempo Ã–ncesi', 1, 241),
+(95, 185, 'Ä°ncesu', 'Ä°ncesu', 1, 241),
+(94, 185, 'Edremit', 'Edremit', 1, 241),
+(93, 185, 'DoÄŸankÃ¶y', 'DoÄŸankÃ¶y', 1, 241),
+(88, 185, 'Alsancak', 'Alsancak', 1, 241),
+(92, 185, 'Ã‡atalkÃ¶y', 'Ã‡atalkÃ¶y', 1, 241),
+(91, 185, 'BoÄŸaz', 'BoÄŸaz', 1, 241),
+(121, 187, 'kermiya', 'kermiya', 1, 241),
+(122, 187, 'kÄ±zÄ±lbaÅŸ', 'kÄ±zÄ±lbaÅŸ', 1, 241),
+(123, 187, 'kÃ¶ÅŸklÃ¼Ã§iftlik', 'kÃ¶ÅŸklÃ¼Ã§iftlik', 1, 241),
+(124, 187, 'kumsal', 'kumsal', 1, 241),
+(125, 187, 'kÃ¼Ã§Ã¼k kaymaklÄ±', 'kÃ¼Ã§Ã¼k kaymaklÄ±', 1, 241),
+(126, 187, 'LefkoÅŸa Surlar iÃ§i', 'LefkoÅŸa Surlar iÃ§i', 1, 241),
+(127, 187, 'marmara', 'marmara', 1, 241),
+(128, 187, 'metehan', 'metehan', 1, 241),
+(129, 187, 'organize sanayi bÃ¶l.', 'organize sanayi bÃ¶l.', 1, 241),
+(130, 187, 'ortakÃ¶y', 'ortakÃ¶y', 1, 241),
+(131, 187, 'TaÅŸkÄ±nkÃ¶y', 'TaÅŸkÄ±nkÃ¶y', 1, 241),
+(132, 187, 'terminal', 'terminal', 1, 241),
+(133, 187, 'ulus.kÄ±brÄ±s Ã¼nv', 'ulus.kÄ±brÄ±s Ã¼nv', 1, 241),
+(134, 187, 'YakÄ±n DoÄŸu Ãœnv', 'YakÄ±n DoÄŸu Ãœnv', 1, 241),
+(135, 187, 'Yeni kent', 'Yeni kent', 1, 241),
+(136, 188, 'Anadolu', 'Anadolu', 1, 241),
+(137, 188, 'Baykal', 'Baykal', 1, 241),
+(138, 188, 'Canbulat', 'Canbulat', 1, 241),
+(139, 188, 'Ã‡anakkale', 'Ã‡anakkale', 1, 241),
+(140, 188, 'DAÃœ KampÃ¼s', 'DAÃœ KampÃ¼s', 1, 241),
+(141, 188, 'DumlupÄ±nar', 'DumlupÄ±nar', 1, 241),
+(142, 188, 'GÃ¼lseren', 'GÃ¼lseren', 1, 241),
+(143, 188, 'Harika', 'Harika', 1, 241),
+(144, 188, 'Karakol', 'Karakol', 1, 241),
+(145, 188, 'Lale Mustafa PaÅŸa', 'Lale Mustafa PaÅŸa', 1, 241),
+(146, 188, 'MaraÅŸ', 'MaraÅŸ', 1, 241),
+(147, 188, 'NamÄ±k Kemal', 'NamÄ±k Kemal', 1, 241),
+(148, 188, 'Palm Beach/Laguna', 'Palm Beach/Laguna', 1, 241),
+(149, 188, 'Pertev PaÅŸa', 'Pertev PaÅŸa', 1, 241),
+(150, 188, 'Piyale PaÅŸa', 'Piyale PaÅŸa', 1, 241),
+(151, 0, 'Sakarya', 'Sakarya', 1, 0),
+(152, 188, 'SuriÃ§i', 'SuriÃ§i', 1, 241),
+(153, 188, 'Tuzla', 'Tuzla', 1, 241),
+(154, 188, 'Zafer mah.', 'Zafer mah.', 1, 241);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact_us`
+--
+
+CREATE TABLE IF NOT EXISTS `contact_us` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `hotel_id` int(11) NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `address` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `countrycode` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `phone1` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `phone2` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `phone3` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `phone4` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `ext2` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `date` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `date2` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `adults` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `childs` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `type_room` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `other_comments` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `firstTime` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `celebrating` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `specialCelebration` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `status` varchar(10) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=40 ;
+
+--
+-- Dumping data for table `contact_us`
+--
+
+INSERT INTO `contact_us` (`id`, `hotel_id`, `name`, `address`, `countrycode`, `phone1`, `phone2`, `phone3`, `phone4`, `ext2`, `email`, `date`, `date2`, `adults`, `childs`, `type_room`, `other_comments`, `firstTime`, `celebrating`, `specialCelebration`, `status`) VALUES
+(34, 21, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1'),
+(35, 65, 'Deneme 123', 'deneme 123 deneme 123', '+90', '212', '22', '22', '22', '', 'ferhat.puskullu@gmail.com', '2010-03-30', '', '2', '2', 'Double Bad', 'deneme deneme 123', 'No', 'No', 'Birthday', '1'),
+(6, 19, 'oktay bala', 'test, cumartesi', '+90', '532', '288', '04', '35', 'ext.', 'bala@rgbmedya.com', '2010-03-24', '', '2', '0', 'AC Room', 'test, cumartesi -01', 'No', 'No', 'Other', '0'),
+(7, 19, 'oktay bala', 'test türkçe, cumartesi', '+90', '532', '288', '04', '35', 'ext.', 'bala@rgbmedya.com', '2010-03-01', '', '4', '0', 'Double Bad', 'türkçe öðþü test... cumartesi', 'Hayýr', 'Evet', '', '0'),
+(26, 63, 'Pankaj Dangi', 'Online Rezervasyon<br />\r\n', '+90', '888', '888', '88', '88', '888', 'pankaj.dangi@gmail.com', '2010-03-15', '', '2', '2', 'AC Room', 'iik', 'HayÄ±r', 'HayÄ±r', '', '1'),
+(8, 19, 'oyad&#305;  	', 'oyad&#305;  	', '+90', '444', '444', '44', '44', 'ext.', 'pankaj.dangi@gmail.com', '2010-03-24', '', '2', '2', 'AC Room', 'dddddd', 'Evet', 'Hay&#305;r', '', '0'),
+(9, 19, 'oktay bala', 'türkçe karakter testi...<br />\r\nöðþüç balýk', '+90', '532', '288', '04', '35', 'ext.', 'bala@rgbmedya.com', '2010-03-24', '', '2', '2', 'Non AC Room', 'türkçe karakter testi...\r\nöðþüç balýk', 'No', 'Yes', 'Anniversary', '0'),
+(23, 18, 'oktay bala ', 'türkçe karakter testi... þüöðçý<br />\r\n', '+90', '532', '288', '04', '35', 'ext.', 'bala@rgbmedya.com', '2010-03-01', '', '1', '5', 'Non AC Room', 'türkçe karakter testi... þüöðçý', 'Hayýr', 'Evet', 'Doðumgünü', '0'),
+(24, 18, 'oktay bala - tÃ¼rkÃ§e form', 'tÃ¼rkÃ§e karakter testi... ÅŸÃ¼Ã¶ÄŸÃ§Ä±', '+90', '532', '288', '04', '35', 'ext.', 'bala@rgbmedya.com', '2010-03-01', '', '2', '2', 'Non AC Room', 'tÃ¼rkÃ§e karakter testi... ÅŸÃ¼Ã¶ÄŸÃ§Ä±', 'Evet', 'Evet', 'DoÄŸumgÃ¼nÃ¼', '0'),
+(33, 63, 'pankaj', 'Macera dolu bir tatile ne dersiniz?<br />\r\nSize önerece&#287;imiz bir çok tatil bölgesi v', '+90', '123', '398', '44', '', '', 'pankaj.dangi@gmail.com', '2010-03-15', '', '2', '2', 'AC Room', 'Macera dolu bir tatile ne dersiniz?\r\n', 'Hay&#305;r', 'Hay&#305;r', 'Do&#287;umgünü', '1'),
+(28, 18, 'pankaj', 'Rezervasyon', '+90', '444', '444', '44', '44', '444', 'pankaj.dangi@gmail.com', '2010-03-15', '', '2', '2', 'AC Room', '&#304;lk kez mi bizimle birlikte olacaks&#305;n&#305;z ?', 'Hay&#305;r', 'Hay&#305;r', '', '0'),
+(22, 19, 'pankaj', 'Size en uygun otel ve ya konaklama yeri mi ar&#305;yorsunuz?<br />\r\ni&#351;te f&#305;rsat, otelleri diledi&#287;iniz özellikleriyle hemen listeleyebilirsiniz.<br />\r\nHaydi a&#351;a&#287;&#305;daki ikonlardan diledi&#287;inizi seçin', '+90', '55', '55', '55', '55', '55', 'pankaj.dangi@gmail.com', '2010-03-08', '', '2', '2', 'AC Room', 'Size en uygun otel ve ya konaklama yeri mi ar&#305;yorsunuz?\r\ni&#351;te f&#305;rsat, otelleri diledi&#287;iniz özellikleriyle hemen listeleyebilirsiniz.\r\nHaydi a&#351;a&#287;&#305;daki ikonlardan diledi&#287;inizi seçin', 'Evet', 'Hay&#305;r', 'Y&#305;ldönümü', '0'),
+(25, 18, 'ferhat gÃ¼zel', 'tÃ¼rkÃ§e karakter testi... ÅŸÃ¼Ã¶ÄŸÃ§Ä±', '+90', '533', '233', '22', '22', '', 'bala@rgbmedya.com', '2010-03-01', '', '2', '1', 'Non AC Room', 'tÃ¼rkÃ§e karakter testi... ÅŸÃ¼Ã¶ÄŸÃ§Ä±', 'Evet', 'Evet', 'DoÄŸumgÃ¼nÃ¼', '0'),
+(30, 18, 'pankaj', 'Size en uygun otel ve ya konaklama yeri mi ar&#305;yorsunuz?<br />\r\ni&#351;te f&#305;rsat, otelleri diledi&#287;iniz özellikleriyle hemen listeleyebilirsiniz.<br />\r\nHaydi a&#351;a&#287;&#305;daki ikonlardan diledi&#287;inizi seçin', '+90', '123', '398', '44', '', 'ext.', 'pankaj.dangi@gmail.com', '2010-03-23', '', '2', '2', 'AC Room', 'Size en uygun otel ve ya konaklama yeri mi ar&#305;yorsunuz?\r\ni&#351;te f&#305;rsat, otelleri diledi&#287;iniz özellikleriyle hemen listeleyebilirsiniz.\r\nHaydi a&#351;a&#287;&#305;daki ikonlardan diledi&#287;inizi seçin', 'Hay&#305;r', 'Hay&#305;r', 'Do&#287;umgünü', '1'),
+(31, 18, 'Pankaj Dangi', 'Size en uygun otel ve ya konaklama yeri mi ar&#305;yorsunuz?<br />\r\ni&#351;te f&#305;rsat, otelleri diledi&#287;iniz özellikleriyle hemen ', '+90', '123', '333', '333', '', '', 'pankaj.dangi@gmail.com', '2010-03-08', '', '2', '2', 'AC Room', 'Size en uygun otel ve ya konaklama yeri mi ar&#305;yorsunuz?\r\ni&#351;te f&#305;rsat, otelleri diledi&#287;iniz özellikleriyle hemen listeleyebilirsiniz.\r\nHaydi a&#351;a&#287;&#305;daki ikonlardan diledi&#287;inizi seçin', 'Evet', 'Evet', 'Do&#287;umgünü', '0'),
+(36, 21, 'oktay bala', 'mmmmm', '+90', '432', '234', '45', '45', 'ext.', 'bala@rgbmedya.com', '2010-03-09', '', '1', '3', 'AC Room', 'mkymlkylmk', 'Yes', 'Yes', 'Birthday', '1'),
+(37, 65, 'deneme', 'deneme2345', '+90', '521', '454', '5', '54', '54', 'ferhatpuskullu@hotmail.com', '2010-03-30', '', '2', '2', 'Non AC Room', 'denemejask kjahdjahdjhaj ajdshjasd', 'No', 'No', 'Birthday', '1'),
+(38, 66, 'abc', 'abc', '+90', '123', '123', '12', '12', '', 'rashpank27@gmail.com', '2010-03-02', '', '2', '2', 'AC Room', 'dgd', 'Yes', 'No', 'Birthday', '1'),
+(39, 66, 'Mahendra', 'indore indore', '+90', '123', '456', '78', '90', '1234', 'vikhar.sonu@gmail.com', '2010-03-15', '', '2', '2', 'Non AC Room', 'dfasdfasdf', 'No', 'Yes', 'Anniversary', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `country`
+--
+
+CREATE TABLE IF NOT EXISTS `country` (
+  `short_name` char(2) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL DEFAULT '',
+  `country_English` varchar(100) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT NULL,
+  `country_Turkish` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT NULL,
+  `country_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `status` tinyint(4) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`country_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=228 ;
+
+--
+-- Dumping data for table `country`
+--
+
+INSERT INTO `country` (`short_name`, `country_English`, `country_Turkish`, `country_id`, `status`) VALUES
+('', 'Turkey', 'Turkiye', 227, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `country_old`
+--
+
+CREATE TABLE IF NOT EXISTS `country_old` (
+  `short_name` char(2) NOT NULL DEFAULT '',
+  `country_English` varchar(100) DEFAULT NULL,
+  `country_Turkish` varchar(255) DEFAULT NULL,
+  `country_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `status` tinyint(4) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`country_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=242 ;
+
+--
+-- Dumping data for table `country_old`
+--
+
+INSERT INTO `country_old` (`short_name`, `country_English`, `country_Turkish`, `country_id`, `status`) VALUES
+('', 'Cyprus', 'KÄ±brÄ±s', 241, 1),
+('', 'Turkey', 'TÃ¼rkiye', 227, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `local`
+--
+
+CREATE TABLE IF NOT EXISTS `local` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `city_id` int(10) unsigned DEFAULT NULL,
+  `state_id` int(10) unsigned DEFAULT NULL,
+  `local_English` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT NULL,
+  `local_Turkish` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `status` tinyint(3) unsigned DEFAULT NULL,
+  `country_id` int(10) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+
+
+--
+-- Table structure for table `local_old`
+--
+
+CREATE TABLE IF NOT EXISTS `local_old` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `city_id` int(10) unsigned DEFAULT NULL,
+  `state_id` int(10) unsigned DEFAULT NULL,
+  `local_English` varchar(255) DEFAULT NULL,
+  `local_Turkish` varchar(255) NOT NULL,
+  `status` tinyint(3) unsigned DEFAULT NULL,
+  `country_id` int(10) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `local_old`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rooms`
+--
+
+CREATE TABLE IF NOT EXISTS `rooms` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `hotel_id` int(11) NOT NULL,
+  `room_type` varchar(100) COLLATE utf8_turkish_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci AUTO_INCREMENT=56 ;
+
+--
+-- Dumping data for table `rooms`
+--
+
+INSERT INTO `rooms` (`id`, `hotel_id`, `room_type`) VALUES
+(28, 6, 'standard twin'),
+(29, 6, 'standard double'),
+(30, 6, 'suit'),
+(31, 6, 'executive room'),
+(32, 6, 'executive suit'),
+(33, 6, 'bussiness suit '),
+(34, 6, 'king suit'),
+(35, 6, 'presantal suit'),
+(36, 162, 'single'),
+(46, 170, 'king suit'),
+(47, 171, 'standard twin'),
+(43, 166, 'standard twin'),
+(53, 9, 'standard twin'),
+(54, 190, 'suit'),
+(55, 190, 'standard twin');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `state`
+--
+
+CREATE TABLE IF NOT EXISTS `state` (
+  `id` int(3) unsigned NOT NULL AUTO_INCREMENT,
+  `country_id` bigint(20) DEFAULT NULL,
+  `short_name` varchar(20) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL DEFAULT '',
+  `name_English` varchar(50) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT NULL,
+  `name_Turkish` varchar(50) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL DEFAULT '',
+  `status` int(3) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=82 ;
+
+--
+-- Dumping data for table `state`
+--
+
+INSERT INTO `state` (`id`, `country_id`, `short_name`, `name_English`, `name_Turkish`, `status`) VALUES
+(1, 227, '', 'ADANA', 'ADANA', 1),
+(2, 227, '', 'ADIYAMAN', 'ADIYAMAN', 1),
+(3, 227, '', 'AFYONKARAHİSAR', 'AFYONKARAHİSAR', 1),
+(4, 227, '', 'AĞRI', 'AĞRI', 1),
+(5, 227, '', 'AMASYA', 'AMASYA', 1),
+(6, 227, '', 'ANKARA', 'ANKARA', 1),
+(7, 227, '', 'ANTALYA', 'ANTALYA', 1),
+(8, 227, '', 'ARTVİN', 'ARTVİN', 1),
+(9, 227, '', 'AYDIN', 'AYDIN', 1),
+(10, 227, '', 'BALIKESİR', 'BALIKESİR', 1),
+(11, 227, '', 'BİLECİK', 'BİLECİK', 1),
+(12, 227, '', 'BİNGÖL', 'BİNGÖL', 1),
+(13, 227, '', 'BİTLİS', 'BİTLİS', 1),
+(14, 227, '', 'BOLU', 'BOLU', 1),
+(15, 227, '', 'BURDUR', 'BURDUR', 1),
+(16, 227, '', 'BURSA', 'BURSA', 1),
+(17, 227, '', 'ÇANAKKALE', 'ÇANAKKALE', 1),
+(18, 227, '', 'ÇANKIRI', 'ÇANKIRI', 1),
+(19, 227, '', 'ÇORUM', 'ÇORUM', 1),
+(20, 227, '', 'DENİZLİ', 'DENİZLİ', 1),
+(21, 227, '', 'DİYARBAKIR', 'DİYARBAKIR', 1),
+(22, 227, '', 'EDİRNE', 'EDİRNE', 1),
+(23, 227, '', 'ELAZIĞ', 'ELAZIĞ', 1),
+(24, 227, '', 'ERZİNCAN', 'ERZİNCAN', 1),
+(25, 227, '', 'ERZURUM', 'ERZURUM', 1),
+(26, 227, '', 'ESKİŞEHİR', 'ESKİŞEHİR', 1),
+(27, 227, '', 'GAZİANTEP', 'GAZİANTEP', 1),
+(28, 227, '', 'GiRESUN', 'GiRESUN', 1),
+(29, 227, '', 'GÜMÜŞHANE', 'GÜMÜŞHANE', 1),
+(30, 227, '', 'HAKKARİ', 'HAKKARİ', 1),
+(31, 227, '', 'HATAY', 'HATAY', 1),
+(32, 227, '', 'ISPARTA', 'ISPARTA', 1),
+(33, 227, '', 'MERSİN', 'MERSİN', 1),
+(34, 227, '', 'İSTANBUL', 'İSTANBUL', 1),
+(35, 227, '', 'İZMİR', 'İZMİR', 1),
+(36, 227, '', 'KARS', 'KARS', 1),
+(37, 227, '', 'KASTAMONU', 'KASTAMONU', 1),
+(38, 227, '', 'KAYSERİ', 'KAYSERİ', 1),
+(39, 227, '', 'KIRKLARELİ', 'KIRKLARELİ', 1),
+(40, 227, '', 'KIRŞEHİR', 'KIRŞEHİR', 1),
+(41, 227, '', 'KOCAELİ', 'KOCAELİ', 1),
+(42, 227, '', 'KONYA', 'KONYA', 1),
+(43, 227, '', 'KÜTAHYA', 'KÜTAHYA', 1),
+(44, 227, '', 'MALATYA', 'MALATYA', 1),
+(45, 227, '', 'MANİSA', 'MANİSA', 1),
+(46, 227, '', 'KAHRAMANMARAŞ', 'KAHRAMANMARAŞ', 1),
+(47, 227, '', 'MARDİN', 'MARDİN', 1),
+(48, 227, '', 'MUĞLA', 'MUĞLA', 1),
+(49, 227, '', 'MUŞ', 'MUŞ', 1),
+(50, 227, '', 'NEVŞEHİR', 'NEVŞEHİR', 1),
+(51, 227, '', 'NİĞDE', 'NİĞDE', 1),
+(52, 227, '', 'ORDU', 'ORDU', 1),
+(53, 227, '', 'RİZE', 'RİZE', 1),
+(54, 227, '', 'SAKARYA', 'SAKARYA', 1),
+(55, 227, '', 'SAMSUN', 'SAMSUN', 1),
+(56, 227, '', 'SİİRT', 'SİİRT', 1),
+(57, 227, '', 'SİNOP', 'SİNOP', 1),
+(58, 227, '', 'SİVAS', 'SİVAS', 1),
+(59, 227, '', 'TEKİRDAĞ', 'TEKİRDAĞ', 1),
+(60, 227, '', 'TOKAT', 'TOKAT', 1),
+(61, 227, '', 'TRABZON', 'TRABZON', 1),
+(62, 227, '', 'TUNCELİ', 'TUNCELİ', 1),
+(63, 227, '', 'ŞANLIURFA', 'ŞANLIURFA', 1),
+(64, 227, '', 'UŞAK', 'UŞAK', 1),
+(65, 227, '', 'VAN', 'VAN', 1),
+(66, 227, '', 'YOZGAT', 'YOZGAT', 1),
+(67, 227, '', 'ZONGULDAK', 'ZONGULDAK', 1),
+(68, 227, '', 'AKSARAY', 'AKSARAY', 1),
+(69, 227, '', 'BAYBURT', 'BAYBURT', 1),
+(70, 227, '', 'KARAMAN', 'KARAMAN', 1),
+(71, 227, '', 'KIRIKKALE', 'KIRIKKALE', 1),
+(72, 227, '', 'BATMAN', 'BATMAN', 1),
+(73, 227, '', 'ŞIRNAK', 'ŞINNAK', 1),
+(74, 227, '', 'BARTIN', 'BARTIN', 1),
+(75, 227, '', 'ARDAHAN', 'ARDAHAN', 1),
+(76, 227, '', 'IĞDIR', 'IĞDIR', 1),
+(77, 227, '', 'YALOVA', 'YALOVA', 1),
+(78, 227, '', 'KARABÜK', 'KARABÜK', 1),
+(79, 227, '', 'KİLİS', 'KİLİS', 1),
+(80, 227, '', 'OSMANİYE', 'OSMANİYE', 1),
+(81, 227, '', 'DÜZCE', 'DÜZCE', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `state_last`
+--
+
+CREATE TABLE IF NOT EXISTS `state_last` (
+  `id` int(3) unsigned NOT NULL AUTO_INCREMENT,
+  `country_id` bigint(20) DEFAULT NULL,
+  `short_name` varchar(20) NOT NULL DEFAULT '',
+  `name_English` varchar(50) DEFAULT NULL,
+  `name_Turkish` varchar(50) NOT NULL DEFAULT '',
+  `status` int(3) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=103 ;
+
+--
+-- Dumping data for table `state_last`
+--
+
+INSERT INTO `state_last` (`id`, `country_id`, `short_name`, `name_English`, `name_Turkish`, `status`) VALUES
+(1, 227, '', 'ADANA', 'ADANA', 1),
+(2, 227, '', 'ADIYAMAN', 'ADIYAMAN', 1),
+(3, 227, '', 'AFYONKARAHÄ°SAR', 'AFYONKARAHÄ°SAR', 1),
+(4, 227, '', 'AÄ?RI', 'AÄ?RI', 1),
+(5, 227, '', 'AMASYA', 'AMASYA', 1),
+(6, 227, '', 'ANKARA', 'ANKARA', 1),
+(7, 227, '', 'ANTALYA', 'ANTALYA', 1),
+(8, 227, '', 'ARTVÄ°N', 'ARTVÄ°N', 1),
+(9, 227, '', 'AYDIN', 'AYDIN', 1),
+(10, 227, '', 'BALIKESÄ°R', 'BALIKESÄ°R', 1),
+(11, 227, '', 'BÄ°LECÄ°K', 'BÄ°LECÄ°K', 1),
+(12, 227, '', 'BÄ°NGÃ?L', 'BÄ°NGÃ?L', 1),
+(13, 227, '', 'BÄ°TLÄ°S', 'BÄ°TLÄ°S', 1),
+(14, 227, '', 'BOLU', 'BOLU', 1),
+(15, 227, '', 'BURDUR', 'BURDUR', 1),
+(16, 227, '', 'BURSA', 'BURSA', 1),
+(17, 227, '', 'Ã?ANAKKALE', 'Ã?ANAKKALE', 1),
+(18, 227, '', 'Ã?ANKIRI', 'Ã?ANKIRI', 1),
+(19, 227, '', 'Ã?ORUM', 'Ã?ORUM', 1),
+(20, 227, '', 'DENÄ°ZLÄ°', 'DENÄ°ZLÄ°', 1),
+(21, 227, '', 'DÄ°YARBAKIR', 'DÄ°YARBAKIR', 1),
+(22, 227, '', 'EDÄ°RNE', 'EDÄ°RNE', 1),
+(23, 227, '', 'ELAZIÄ?', 'ELAZIÄ?', 1),
+(24, 227, '', 'ERZÄ°NCAN', 'ERZÄ°NCAN', 1),
+(25, 227, '', 'ERZURUM', 'ERZURUM', 1),
+(26, 227, '', 'ESKÄ°Å?EHÄ°R', 'ESKÄ°Å?EHÄ°R', 1),
+(27, 227, '', 'GAZÄ°ANTEP', 'GAZÄ°ANTEP', 1),
+(28, 227, '', 'GÄ°RESUN', 'GÄ°RESUN', 1),
+(29, 227, '', 'GÃ?MÃ?Å?HANE', 'GÃ?MÃ?Å?HANE', 1),
+(30, 227, '', 'HAKKARÄ°', 'HAKKARÄ°', 1),
+(31, 227, '', 'HATAY', 'HATAY', 1),
+(32, 227, '', 'ISPARTA', 'ISPARTA', 1),
+(33, 227, '', 'MERSÄ°N', 'MERSÄ°N', 1),
+(34, 227, '', 'Ä°STANBUL', 'Ä°STANBUL', 1),
+(35, 227, '', 'Ä°ZMÄ°R', 'Ä°ZMÄ°R', 1),
+(36, 227, '', 'KARS', 'KARS', 1),
+(37, 227, '', 'KASTAMONU', 'KASTAMONU', 1),
+(38, 227, '', 'KAYSERÄ°', 'KAYSERÄ°', 1),
+(39, 227, '', 'KIRKLARELÄ°', 'KIRKLARELÄ°', 1),
+(40, 227, '', 'KIRÅ?EHÄ°R', 'KIRÅ?EHÄ°R', 1),
+(41, 227, '', 'KOCAELÄ°', 'KOCAELÄ°', 1),
+(42, 227, '', 'KONYA', 'KONYA', 1),
+(43, 227, '', 'KÃ?TAHYA', 'KÃ?TAHYA', 1),
+(44, 227, '', 'MALATYA', 'MALATYA', 1),
+(45, 227, '', 'MANÄ°SA', 'MANÄ°SA', 1),
+(46, 227, '', 'KAHRAMANMARAÅ?', 'KAHRAMANMARAÅ?', 1),
+(47, 227, '', 'MARDÄ°N', 'MARDÄ°N', 1),
+(48, 227, '', 'MUÄ?LA', 'MUÄ?LA', 1),
+(49, 227, '', 'MUÅ?', 'MUÅ?', 1),
+(50, 227, '', 'NEVÅ?EHÄ°R', 'NEVÅ?EHÄ°R', 1),
+(51, 227, '', 'NÄ°Ä?DE', 'NÄ°Ä?DE', 1),
+(52, 227, '', 'ORDU', 'ORDU', 1),
+(53, 227, '', 'RÄ°ZE', 'RÄ°ZE', 1),
+(54, 227, '', 'SAKARYA', 'SAKARYA', 1),
+(55, 227, '', 'SAMSUN', 'SAMSUN', 1),
+(56, 227, '', 'SÄ°Ä°RT', 'SÄ°Ä°RT', 1),
+(57, 227, '', 'SÄ°NOP', 'SÄ°NOP', 1),
+(58, 227, '', 'SÄ°VAS', 'SÄ°VAS', 1),
+(59, 227, '', 'TEKÄ°RDAÄ?', 'TEKÄ°RDAÄ?', 1),
+(60, 227, '', 'TOKAT', 'TOKAT', 1),
+(61, 227, '', 'TRABZON', 'TRABZON', 1),
+(62, 227, '', 'TUNCELÄ°', 'TUNCELÄ°', 1),
+(63, 227, '', 'Å?ANLIURFA', 'Å?ANLIURFA', 1),
+(64, 227, '', 'UÅ?AK', 'UÅ?AK', 1),
+(65, 227, '', 'VAN', 'VAN', 1),
+(66, 227, '', 'YOGZAT', 'YOGZAT', 1),
+(67, 227, '', 'ZONGULDAK', 'ZONGULDAK', 1),
+(68, 227, '', 'AKSARAY', 'AKSARAY', 1),
+(69, 227, '', 'BAYBURT', 'BAYBURT', 1),
+(70, 227, '', 'KARAMAN', 'KARAMAN', 1),
+(71, 227, '', 'KIRIKKALE', 'KIRIKKALE', 1),
+(72, 227, '', 'BATMAN', 'BATMAN', 1),
+(73, 227, '', 'Å?IRNAK', 'Å?IRNAK', 1),
+(74, 227, '', 'BARTIN', 'BARTIN', 1),
+(75, 227, '', 'ARDAHAN', 'ARDAHAN', 1),
+(76, 227, '', 'IÄ?DIR', 'IÄ?DIR', 1),
+(77, 227, '', 'YALOVA', 'YALOVA', 1),
+(78, 227, '', 'KARABÃ?K', 'KARABÃ?K', 1),
+(79, 227, '', 'KÄ°LÄ°S', 'KÄ°LÄ°S', 1),
+(80, 227, '', 'OSMANÄ°YE', 'OSMANÄ°YE', 1),
+(81, 227, '', 'DÃ?ZCE', 'DÃ?ZCE', 1),
+(102, 227, '', 'test1', 'test', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `state_old`
+--
+
+CREATE TABLE IF NOT EXISTS `state_old` (
+  `id` int(3) unsigned NOT NULL AUTO_INCREMENT,
+  `country_id` bigint(20) DEFAULT NULL,
+  `short_name` varchar(20) NOT NULL DEFAULT '',
+  `name_English` varchar(50) DEFAULT NULL,
+  `name_Turkish` varchar(50) NOT NULL DEFAULT '',
+  `status` int(3) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=189 ;
+
+--
+-- Dumping data for table `state_old`
+--
+
+INSERT INTO `state_old` (`id`, `country_id`, `short_name`, `name_English`, `name_Turkish`, `status`) VALUES
+(188, 241, '', 'MaÄŸusa', 'MaÄŸusa', 1),
+(187, 241, '', 'LefkoÅŸa', 'LefkoÅŸa', 1),
+(185, 241, '', 'Girne', 'Girne', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_admin`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_admin` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT NULL,
+  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `tbl_admin`
+--
+
+INSERT INTO `tbl_admin` (`id`, `username`, `password`, `email`) VALUES
+(1, 'admin', 'admin', 'admin@booking.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_category`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_category` (
+  `id` tinyint(4) NOT NULL AUTO_INCREMENT,
+  `category_English` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL DEFAULT '',
+  `status` tinyint(4) NOT NULL DEFAULT '0',
+  `post_date` date NOT NULL DEFAULT '0000-00-00',
+  `category_Turkish` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `tbl_category`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_content`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_content` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `menus` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL DEFAULT '',
+  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL DEFAULT '',
+  `description` text CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `access_level` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL DEFAULT '',
+  `generated_by` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL DEFAULT '',
+  `modified_by` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL DEFAULT '',
+  `create_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `mdification_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `status` tinyint(4) NOT NULL DEFAULT '0',
+  `menus_Turkish` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL DEFAULT '',
+  `description_Turkish` text CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `title_Turkish` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=19 ;
+
+--
+-- Dumping data for table `tbl_content`
+--
+
+INSERT INTO `tbl_content` (`id`, `menus`, `title`, `description`, `access_level`, `generated_by`, `modified_by`, `create_date`, `mdification_date`, `status`, `menus_Turkish`, `description_Turkish`, `title_Turkish`) VALUES
+(14, 'About Us', 'we are working for you..', '<p>we are working on publishing market since 1986</p>', '', 'ADMIN24', 'RGBMEDYA', '2011-05-05 08:38:07', '0000-00-00 00:00:00', 0, 'Hakkımızda', '<p>Hakımızda b&ouml;l&uuml;m&uuml; i&ccedil;in yayınlanacak yazı buraya eklenecek...</p>', 'Başlık buraya girilecek'),
+(15, 'Contact Us', '', '', '', 'RGBMEDYA', 'RGBMEDYA', '2011-05-07 11:05:51', '0000-00-00 00:00:00', 0, 'İrtibat', '<p>Bu sayfada site y&ouml;netimine ait irtibat se&ccedil;enekleri yayınlanacak.</p>', 'Başlık buraya gelecek...'),
+(16, 'Terms and Conditions', 'coming soon...', '<p>please visit again..</p>', '', 'ADMIN24', 'ADMIN24', '2011-05-21 08:42:11', '0000-00-00 00:00:00', 0, 'Kullanım Hakları', '<p>Bu sayfa hazırlanmaktadır, l&uuml;tfen tekrar ziyaret ediniz.</p>', 'Bizim kurallarımız'),
+(17, 'Privacy Policy', 'it is not ready', '<p>The page is not available to give you information about Privacy Policy for now.. Please visit the page again.</p>', '', 'ADMIN24', '', '2011-05-21 08:44:45', '0000-00-00 00:00:00', 0, 'Gizlilik Kuralları', '<p>Bu sayfa hazırlanmaktadır, l&uuml;tfen tekrar ziyaret ediniz.</p>', 'Bizim gizlilik kuralalarımız'),
+(18, 'Advertise with Us', 'private ad service only', '<p>Bu sayfa hen&uuml;z hazır değildir.</p>', '', 'ADMIN24', 'ADMIN24', '2011-05-21 08:46:01', '0000-00-00 00:00:00', 0, 'Reklam Servisi', '<p>bu sayfa hazırlanmaktadır. l&uuml;tfen tekrar deneyiniz.</p>', 'Her banner ');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_guest`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_guest` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `message_English` text CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `hotel` bigint(20) NOT NULL DEFAULT '0',
+  `status` tinyint(4) NOT NULL DEFAULT '0',
+  `post_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT NULL,
+  `phone` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT NULL,
+  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT NULL,
+  `message_Turkish` text CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=28 ;
+
+--
+-- Dumping data for table `tbl_guest`
+--
+
+INSERT INTO `tbl_guest` (`id`, `message_English`, `hotel`, `status`, `post_date`, `name`, `phone`, `email`, `message_Turkish`) VALUES
+(2, '<p>Hello this is message</p>', 2, 1, '2009-08-20 16:14:31', 'admin', '122222', 'admin@admin.com', ''),
+(27, 'test message', 0, 1, '2010-01-12 11:06:53', 'alname', '', 'alemail@hotmail.com', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_hotel`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_hotel` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `hotel_name` varchar(255) COLLATE utf8_turkish_ci NOT NULL DEFAULT '',
+  `category` bigint(20) NOT NULL DEFAULT '0',
+  `subcategory` bigint(20) NOT NULL DEFAULT '0',
+  `rate` varchar(255) COLLATE utf8_turkish_ci NOT NULL DEFAULT '',
+  `place_type` varchar(100) COLLATE utf8_turkish_ci NOT NULL,
+  `food_p` varchar(50) COLLATE utf8_turkish_ci NOT NULL DEFAULT '0',
+  `decor_p` varchar(50) COLLATE utf8_turkish_ci NOT NULL DEFAULT '0',
+  `service_p` varchar(50) COLLATE utf8_turkish_ci NOT NULL DEFAULT '0',
+  `cost_p` varchar(50) COLLATE utf8_turkish_ci NOT NULL DEFAULT '0',
+  `description` text COLLATE utf8_turkish_ci NOT NULL,
+  `image` int(11) NOT NULL DEFAULT '0',
+  `video` int(11) NOT NULL DEFAULT '0',
+  `activities` text COLLATE utf8_turkish_ci NOT NULL,
+  `services` text COLLATE utf8_turkish_ci NOT NULL,
+  `generals` text COLLATE utf8_turkish_ci NOT NULL,
+  `rooms` text COLLATE utf8_turkish_ci NOT NULL,
+  `prices` double(7,2) NOT NULL,
+  `historical` text COLLATE utf8_turkish_ci NOT NULL,
+  `entertainment` text COLLATE utf8_turkish_ci NOT NULL,
+  `contact` varchar(255) COLLATE utf8_turkish_ci NOT NULL DEFAULT '',
+  `contact_hotel` varchar(255) COLLATE utf8_turkish_ci NOT NULL DEFAULT '',
+  `address` text COLLATE utf8_turkish_ci NOT NULL,
+  `country` bigint(20) NOT NULL DEFAULT '0',
+  `city` bigint(20) NOT NULL DEFAULT '0',
+  `state` bigint(20) NOT NULL DEFAULT '0',
+  `zipcode` bigint(20) NOT NULL DEFAULT '0',
+  `gpoint` varchar(255) COLLATE utf8_turkish_ci NOT NULL DEFAULT '',
+  `phone` varchar(255) COLLATE utf8_turkish_ci NOT NULL DEFAULT '',
+  `fax` varchar(255) COLLATE utf8_turkish_ci NOT NULL DEFAULT '',
+  `email` varchar(255) COLLATE utf8_turkish_ci NOT NULL DEFAULT '',
+  `status` tinyint(4) NOT NULL DEFAULT '0',
+  `editor_pick` tinyint(4) NOT NULL DEFAULT '0',
+  `post_date` date NOT NULL DEFAULT '0000-00-00',
+  `hotel_name_Turkish` varchar(255) COLLATE utf8_turkish_ci NOT NULL DEFAULT '',
+  `description_Turkish` text COLLATE utf8_turkish_ci NOT NULL,
+  `activities_Turkish` text COLLATE utf8_turkish_ci NOT NULL,
+  `services_Turkish` text COLLATE utf8_turkish_ci NOT NULL,
+  `generals_Turkish` text COLLATE utf8_turkish_ci NOT NULL,
+  `rooms_Turkish` text COLLATE utf8_turkish_ci NOT NULL,
+  `prices_Turkish` double(7,2) NOT NULL,
+  `historical_Turkish` text COLLATE utf8_turkish_ci NOT NULL,
+  `entertainment_Turkish` text COLLATE utf8_turkish_ci NOT NULL,
+  `contact_Turkish` varchar(255) COLLATE utf8_turkish_ci NOT NULL DEFAULT '',
+  `contact_hotel_Turkish` varchar(255) COLLATE utf8_turkish_ci NOT NULL DEFAULT '',
+  `address_Turkish` text COLLATE utf8_turkish_ci NOT NULL,
+  `user_id` bigint(20) DEFAULT NULL,
+  `guest` int(11) NOT NULL DEFAULT '0',
+  `visit_count` bigint(20) NOT NULL DEFAULT '0',
+  `languages` tinyint(1) NOT NULL DEFAULT '0',
+  `local` int(11) NOT NULL,
+  `village` int(11) NOT NULL,
+  `latitude` varchar(255) COLLATE utf8_turkish_ci NOT NULL,
+  `longitude` varchar(255) COLLATE utf8_turkish_ci NOT NULL,
+  `booked` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci AUTO_INCREMENT=192 ;
+
+
+--
+-- Table structure for table `tbl_hotel_image`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_hotel_image` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `hotel_id` bigint(20) unsigned DEFAULT NULL,
+  `image` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT NULL,
+  `default_img` int(2) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`),
+  KEY `id_2` (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=270 ;
+
+
+--
+-- Table structure for table `tbl_hotel_old`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_hotel_old` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `hotel_name` varchar(255) COLLATE latin1_general_ci NOT NULL DEFAULT '',
+  `category` bigint(20) NOT NULL DEFAULT '0',
+  `subcategory` bigint(20) NOT NULL DEFAULT '0',
+  `rate` varchar(255) COLLATE latin1_general_ci NOT NULL DEFAULT '',
+  `place_type` varchar(100) COLLATE latin1_general_ci NOT NULL,
+  `food_p` varchar(50) COLLATE latin1_general_ci NOT NULL DEFAULT '0',
+  `decor_p` varchar(50) COLLATE latin1_general_ci NOT NULL DEFAULT '0',
+  `service_p` varchar(50) COLLATE latin1_general_ci NOT NULL DEFAULT '0',
+  `cost_p` varchar(50) COLLATE latin1_general_ci NOT NULL DEFAULT '0',
+  `description` text COLLATE latin1_general_ci NOT NULL,
+  `image` int(11) NOT NULL DEFAULT '0',
+  `video` int(11) NOT NULL DEFAULT '0',
+  `activities` text COLLATE latin1_general_ci NOT NULL,
+  `services` text COLLATE latin1_general_ci NOT NULL,
+  `generals` text COLLATE latin1_general_ci NOT NULL,
+  `rooms` text COLLATE latin1_general_ci NOT NULL,
+  `prices` double(7,2) NOT NULL,
+  `historical` text COLLATE latin1_general_ci NOT NULL,
+  `entertainment` text COLLATE latin1_general_ci NOT NULL,
+  `contact` varchar(255) COLLATE latin1_general_ci NOT NULL DEFAULT '',
+  `contact_hotel` varchar(255) COLLATE latin1_general_ci NOT NULL DEFAULT '',
+  `address` text COLLATE latin1_general_ci NOT NULL,
+  `country` bigint(20) NOT NULL DEFAULT '0',
+  `city` bigint(20) NOT NULL DEFAULT '0',
+  `state` bigint(20) NOT NULL DEFAULT '0',
+  `zipcode` bigint(20) NOT NULL DEFAULT '0',
+  `gpoint` varchar(255) COLLATE latin1_general_ci NOT NULL DEFAULT '',
+  `phone` varchar(255) COLLATE latin1_general_ci NOT NULL DEFAULT '',
+  `fax` varchar(255) COLLATE latin1_general_ci NOT NULL DEFAULT '',
+  `email` varchar(255) COLLATE latin1_general_ci NOT NULL DEFAULT '',
+  `status` tinyint(4) NOT NULL DEFAULT '0',
+  `editor_pick` tinyint(4) NOT NULL DEFAULT '0',
+  `post_date` date NOT NULL DEFAULT '0000-00-00',
+  `hotel_name_Turkish` varchar(255) COLLATE latin1_general_ci NOT NULL DEFAULT '',
+  `description_Turkish` text COLLATE latin1_general_ci NOT NULL,
+  `activities_Turkish` text COLLATE latin1_general_ci NOT NULL,
+  `services_Turkish` text COLLATE latin1_general_ci NOT NULL,
+  `generals_Turkish` text COLLATE latin1_general_ci NOT NULL,
+  `rooms_Turkish` text COLLATE latin1_general_ci NOT NULL,
+  `prices_Turkish` double(7,2) NOT NULL,
+  `historical_Turkish` text COLLATE latin1_general_ci NOT NULL,
+  `entertainment_Turkish` text COLLATE latin1_general_ci NOT NULL,
+  `contact_Turkish` varchar(255) COLLATE latin1_general_ci NOT NULL DEFAULT '',
+  `contact_hotel_Turkish` varchar(255) COLLATE latin1_general_ci NOT NULL DEFAULT '',
+  `address_Turkish` text COLLATE latin1_general_ci NOT NULL,
+  `user_id` bigint(20) DEFAULT NULL,
+  `guest` int(11) NOT NULL DEFAULT '0',
+  `visit_count` bigint(20) NOT NULL DEFAULT '0',
+  `languages` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=94 ;
+
+--
+-- Dumping data for table `tbl_hotel_old`
+--
+
+INSERT INTO `tbl_hotel_old` (`id`, `hotel_name`, `category`, `subcategory`, `rate`, `place_type`, `food_p`, `decor_p`, `service_p`, `cost_p`, `description`, `image`, `video`, `activities`, `services`, `generals`, `rooms`, `prices`, `historical`, `entertainment`, `contact`, `contact_hotel`, `address`, `country`, `city`, `state`, `zipcode`, `gpoint`, `phone`, `fax`, `email`, `status`, `editor_pick`, `post_date`, `hotel_name_Turkish`, `description_Turkish`, `activities_Turkish`, `services_Turkish`, `generals_Turkish`, `rooms_Turkish`, `prices_Turkish`, `historical_Turkish`, `entertainment_Turkish`, `contact_Turkish`, `contact_hotel_Turkish`, `address_Turkish`, `user_id`, `guest`, `visit_count`, `languages`) VALUES
+(93, 'Zehra''nÄ±n Oteli', 0, 0, 'boutique', 'Hotel', '', '', '', '', '<p>buraya otel hakkÄ±nda yazÄ±sÄ±...</p>', 0, 0, '', '', '', '', 0.00, '', '', '', '', '', 0, 0, 0, 0, '', '', '', '', 1, 0, '2011-04-26', '', '', '', '', '', '', 0.00, '', '', '', '', '', 4747, 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_hotel_video`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_hotel_video` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `hotel_id` bigint(20) unsigned DEFAULT NULL,
+  `video` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT NULL,
+  `default_v` int(11) NOT NULL,
+  `video_thumb` varchar(1000) COLLATE latin1_general_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`),
+  KEY `id_2` (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=4 ;
+
+
+--
+-- Table structure for table `tbl_hotel_video_thumb`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_hotel_video_thumb` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `hotel_id` int(10) NOT NULL DEFAULT '0',
+  `video_id` int(10) NOT NULL DEFAULT '0',
+  `video_image` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL DEFAULT '',
+  `default_v` int(4) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+
+--
+-- Table structure for table `tbl_online_reservation`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_online_reservation` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `hotel_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `address` text CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `phone` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `ext` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `mobile` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `checkin` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `checkout` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `adults` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `children` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `room_type` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `comments` text CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `first_time` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `special` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `what_is_special` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `post_date` date NOT NULL,
+  `language` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `is_read` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `is_delete` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `is_replay` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `status` varchar(50) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `tbl_online_reservation`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_subcategory`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_subcategory` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `subcategory_English` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL DEFAULT '',
+  `cat_id` bigint(20) NOT NULL DEFAULT '0',
+  `status` tinyint(4) NOT NULL DEFAULT '0',
+  `post_date` date NOT NULL DEFAULT '0000-00-00',
+  `subcategory_Turkish` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=27 ;
+
+--
+-- Dumping data for table `tbl_subcategory`
+--
+
+INSERT INTO `tbl_subcategory` (`id`, `subcategory_English`, `cat_id`, `status`, `post_date`, `subcategory_Turkish`) VALUES
+(18, 'trade1', 14, 1, '2009-08-18', 'trade T'),
+(20, 'Train', 15, 1, '2009-08-18', ''),
+(21, 'Bus', 15, 1, '2009-08-18', ''),
+(22, 'Aeroplane', 15, 1, '2009-08-18', ''),
+(23, 'trip1', 16, 1, '2009-08-18', ''),
+(24, '5 days trip', 16, 1, '2009-08-18', ''),
+(25, 'ship', 16, 1, '2009-08-18', ''),
+(26, 'new sub', 19, 1, '2009-08-22', 'new sube');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_user`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_user` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL DEFAULT '',
+  `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT NULL,
+  `full_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT NULL,
+  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT NULL,
+  `contact_info` text CHARACTER SET utf8 COLLATE utf8_turkish_ci,
+  `user_type` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT NULL,
+  `status` tinyint(4) DEFAULT NULL,
+  `last_login_ip` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL DEFAULT '',
+  `last_login_date` date NOT NULL DEFAULT '0000-00-00',
+  `total_loged_in` bigint(20) NOT NULL DEFAULT '0',
+  `post_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `user_id_Turkish` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL DEFAULT '',
+  `full_name_Turkish` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT NULL,
+  `contact_info_Turkish` text CHARACTER SET utf8 COLLATE utf8_turkish_ci,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=4936 ;
+
+--
+-- Dumping data for table `tbl_user`
+--
+
+INSERT INTO `tbl_user` (`id`, `user_id`, `password`, `full_name`, `email`, `contact_info`, `user_type`, `status`, `last_login_ip`, `last_login_date`, `total_loged_in`, `post_date`, `user_id_Turkish`, `full_name_Turkish`, `contact_info_Turkish`) VALUES
+(4734, 'RGBMEDYA', 'istanbul1969', 'oktay bala', 'admin@rgbmedya.com', '', 'Super Admin', 1, '127.0.0.1', '2011-06-01', 507, '2011-03-27 12:24:06', '', NULL, NULL),
+(4751, 'admin24', 'admin24', 'zehra kahraman', 'zehrakahraman33@hotmail.com', '', 'Admin', 1, '127.0.0.1', '2011-06-01', 341, '2011-04-26 06:27:06', '', NULL, NULL),
+(4903, 'Halıcıhotel', 'halicihotel', 'Dilber İnal', 'info@halicihotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 254, '2011-05-06 01:09:27', '', NULL, NULL),
+(4769, 'parkhotel', 'parkhotel', 'Ahmet Sarıkaya', 'info@parkhotel.web.tr', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 300, '2011-05-02 03:21:20', '', NULL, NULL),
+(4755, 'otelinci', 'otelinci', 'Yalçın İldeniz', 'info@otelinci.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 300, '2011-05-02 02:43:52', '', NULL, NULL),
+(4756, 'sedefotel', 'sedefotel', 'Ayça Durukan', 'info@sedefotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 300, '2011-05-02 02:45:56', '', NULL, NULL),
+(4757, 'otelseyhan', 'otelseyhan', 'Merve Çelt', 'satis@otelseyhan.com.tr', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 300, '2011-05-02 02:47:42', '', NULL, NULL),
+(4758, 'otelbosnali', 'otelbosnali', 'Şenay Sevil', 'info@hotelbosnali.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 300, '2011-05-02 02:49:49', '', NULL, NULL),
+(4759, 'zaimogluoteli', 'zaimogluoteli', 'Zaimoğlu Oteli', 'info@zaimoglu.com.tr', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 300, '2011-05-02 02:53:30', '', NULL, NULL),
+(4760, 'surmelihotels', 'surmelihotels', 'Ayşe Özyön', 'sales.ankara@surmelihotels.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 300, '2011-05-02 02:59:32', '', NULL, NULL),
+(4761, 'umitpembekoskotel', 'umitpembekoskotel', 'Ebru Benlioğlu', 'info@umitpembekoskotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 300, '2011-05-02 03:01:48', '', NULL, NULL),
+(4762, 'firstangorahotel', 'firstangorahotel', 'Neslihan Sübay', 'angorahotel@mynet.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 300, '2011-05-02 03:03:08', '', NULL, NULL),
+(4763, 'ckfarabihotel', 'ckfarabihotel', 'Gonca Özkırım', 'info@ckfarabihotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 300, '2011-05-02 03:05:05', '', NULL, NULL),
+(4764, 'hotelickale', 'hotelickale', 'Nehir Hiçyılmaz', 'ankara@hotelickale.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 300, '2011-05-02 03:08:00', '', NULL, NULL),
+(4765, 'hotelmidas', 'hotelmidas', 'Vedia Sarısakal', 'rez@hotelmidas.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 300, '2011-05-02 03:10:29', '', NULL, NULL),
+(4766, 'otelcapital', 'otelcapital', 'Uğur Seyfi', 'info@otelcapital.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 300, '2011-05-02 03:11:32', '', NULL, NULL),
+(4767, 'bilkentotel', 'bilkentotel', 'Nazlı Özelge', 'info@bilkentotel.com.tr', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 300, '2011-05-02 03:15:04', '', NULL, NULL),
+(4768, 'megaresidancehotel', 'megaresidancehotel', 'Başak Parlar', 'sales.ankara@megaresidancehotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 300, '2011-05-02 03:17:01', '', NULL, NULL),
+(4779, 'prestigehotel', 'prestigehotel', 'Necla Tekin', 'info@boluprestige.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 300, '2011-05-02 03:52:46', '', NULL, NULL),
+(4772, 'polattermalhotel', 'polattermalhotel', 'Vesile Yaşar', 'vesileyasar@polathotel.com.tr', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 300, '2011-05-02 03:33:10', '', NULL, NULL),
+(4773, 'granderashotel', 'granderashotel', 'Zafer Harun Erkan', 'aksaray@granderashotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 300, '2011-05-02 03:34:57', '', NULL, NULL),
+(4774, 'alkinprestigehotel', 'alkinprestigehotel', 'Alkın Prestige Hotel', 'info@otelalkin.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 300, '2011-05-02 03:39:32', '', NULL, NULL),
+(4775, 'hotelwest', 'hotelwest', 'Serpil Atlı', 'westadahotel@gmail.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 300, '2011-05-02 03:41:03', '', NULL, NULL),
+(4776, 'marinahotel', 'marinahotel', 'Burçin Usta', 'info@marinahotelkusadasi.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 300, '2011-05-02 03:43:51', '', NULL, NULL),
+(4777, 'clubafrodit', 'clubafrodit', 'Club Afrodit', 'afrodit@clubafrodit.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 300, '2011-05-02 03:46:27', '', NULL, NULL),
+(4778, 'gonenkaplicalari', 'gonenkaplicalari', 'Gonen Kaplıcaları', 'rezervasyon@gonenkaplicalari.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 300, '2011-05-02 03:49:07', '', NULL, NULL),
+(4780, 'almirahotel', 'almirahotel', 'Aylin Işıkoğulları', 'almira@almira.com.tr', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 292, '2011-05-03 02:34:54', '', NULL, NULL),
+(4781, 'ziganayaylatatilkoyu', 'ziganayaylatatilkoyu', 'İlknur Çamoğlu', 'info@ziganatatilkoyu.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 292, '2011-05-03 02:40:18', '', NULL, NULL),
+(4782, 'hotelbuyukyildiz', 'hotelbuyukyildiz', 'Gökhan Uğurtuğ', 'buyukyildiz@buyukyildizotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 292, '2011-05-03 02:46:56', '', NULL, NULL),
+(4783, 'holidayinnhotel', 'holidayinnhotel', 'Hülya Pehlivan', 'holidayinnbursa@holidayinnbursa.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 291, '2011-05-03 02:56:23', '', NULL, NULL),
+(4784, 'hotelanatolia', 'hotelanatolia', 'Esra Oruç', 'anatolia@hotelanatolia.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 291, '2011-05-03 02:59:53', '', NULL, NULL),
+(4785, 'grandozerenhotel', 'grandozerenhotel', 'Hüseyin Özeren', 'info@grandozerenhotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 291, '2011-05-03 03:08:30', '', NULL, NULL),
+(4786, 'assosparkhotel', 'assosparkhotel', 'Assos Park Otel', 'info@assospark.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 291, '2011-05-03 03:13:40', '', NULL, NULL),
+(4787, 'grandassoshotel', 'grandassoshotel', 'Grand Assos Hotel', 'grandassoshotel@mynet.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 291, '2011-05-03 03:17:14', '', NULL, NULL),
+(4788, 'grandanzachotel', 'grandanzachotel', 'Yusuf Kayaalp', 'grandanzac@anzachotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 291, '2011-05-03 03:20:18', '', NULL, NULL),
+(4789, 'koruhotel', 'koruhotel', 'Ali Terzibaşoğlu', 'info@koruhotel.com.tr', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 291, '2011-05-03 03:47:19', '', NULL, NULL),
+(4790, 'irisotel', 'irisotel', 'Diana Ateren', 'info@irisotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 291, '2011-05-03 03:52:42', '', NULL, NULL),
+(4791, 'oteldalgiclar', 'oteldalgiclar', 'Özlem Özdemir', 'ozlem@dalgiclarotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 291, '2011-05-03 04:01:38', '', NULL, NULL),
+(4792, 'soyicotel', 'soyicotel', 'M.Zafer Açıkgöz', 'bilgi@soyicotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 291, '2011-05-03 04:45:49', '', NULL, NULL),
+(4793, 'saffronhotels', 'saffronhotels', 'Cemalettin Önen', 'eskisehir@saffronhotels.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 291, '2011-05-03 04:47:53', '', NULL, NULL),
+(4794, 'hoteldilaver', 'hoteldilaver', 'Mahmut Çetin', 'info@hoteldilaver.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 290, '2011-05-03 04:53:00', '', NULL, NULL),
+(4795, 'akgunelazıghotel', 'akgunelazıghotel', 'Hakan Orhan', 'info@akgunelazıghotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 290, '2011-05-03 04:54:42', '', NULL, NULL),
+(4796, 'velicotel', 'velicotel', 'Atilla Yener', 'info@velicotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 289, '2011-05-03 05:06:55', '', NULL, NULL),
+(4797, 'zeynephanimkonaklari', 'zeynephanimkonaklari', 'Atilla Yener', 'info@zeynephanimkonaklari.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 289, '2011-05-03 05:11:09', '', NULL, NULL),
+(4798, 'hoteltilmen', 'hoteltilmen', 'Gülcan Demircan', 'info@hoteltilmen.com.tr', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 287, '2011-05-03 05:26:40', '', NULL, NULL),
+(4799, 'gaziantepgrandhotel', 'gaziantepgrandhotel', 'Salih Kızılcık', 'salih@gaziantepgrandhotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 287, '2011-05-03 05:29:27', '', NULL, NULL),
+(4800, 'cimenlerotel', 'cimenlerotel', 'Zeki Köksal', 'cimenler@cimenlerotel.com.tr', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 287, '2011-05-03 05:38:15', '', NULL, NULL),
+(4801, 'narinhotel', 'narinhotel', 'Narin Otel', 'info@narinhotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 287, '2011-05-03 05:43:42', '', NULL, NULL),
+(4802, 'issosotel', 'issosotel', 'İssos Otel', 'issosotel@gmail.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 287, '2011-05-03 05:45:32', '', NULL, NULL),
+(4803, 'otelkittur', 'otelkittur', 'Ayşe Öztürk', 'otelkittur@otelkittur.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 287, '2011-05-03 05:46:53', '', NULL, NULL),
+(4804, 'pointhotel', 'pointhotel', 'Ebru Parlak', 'sales@pointhotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 287, '2011-05-03 05:53:05', '', NULL, NULL),
+(4805, 'megaresidencehotelistanbul', 'megaresidencehotelistanbul', 'Nadya İzik', 'istanbul@megaresidence.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 287, '2011-05-03 05:57:27', '', NULL, NULL),
+(4806, 'guneshotel', 'guneshotel', 'Gupse Çakar', 'satis@guneshotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 287, '2011-05-03 06:02:42', '', NULL, NULL),
+(4807, 'ceylanintercontinental', 'ceylanintercontinental', 'Ceylan Intercontinental', 'reservation@interconti.com.tr', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 287, '2011-05-03 06:05:06', '', NULL, NULL),
+(4808, 'cinarhotel', 'cinarhotel', 'Yasemin Yücel', 'reservation@cinarhotel.com.tr', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 287, '2011-05-03 06:11:03', '', NULL, NULL),
+(4809, 'pirilhotel', 'pirilhotel', 'Özlem Başboğa', 'info@pirilhotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 287, '2011-05-03 06:14:28', '', NULL, NULL),
+(4810, 'dinlerhotels', 'dinlerhotels', 'Uğurhan Özcaymaz', 'urgup@dinler.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 287, '2011-05-03 06:18:54', '', NULL, NULL),
+(4811, 'perissiahotel', 'perissiahotel', 'Hasan Özçetin', 'info@perissia.com.tr', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 287, '2011-05-03 06:22:18', '', NULL, NULL),
+(4812, 'hotelkarabag', 'hotelkarabag', 'Mikayil Altun', 'kontakt@hotel-karabag.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 287, '2011-05-03 06:27:08', '', NULL, NULL),
+(4813, 'granderasotel', 'granderasotel', 'Ali İhsan Ülgentürk', 'info@granderas.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 287, '2011-05-03 06:31:43', '', NULL, NULL),
+(4814, 'benthotel', 'benthotel', 'İlhami İlhan', 'info@benthotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 287, '2011-05-03 06:32:56', '', NULL, NULL),
+(4815, 'hurhotel', 'hurhotel', 'Uğur Dikoğlu', 'info@hurhotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 287, '2011-05-03 06:38:26', '', NULL, NULL),
+(4816, 'otelselcuk', 'otelselcuk', 'Otel Selçuk', 'rezervasyon@otelselcuk.com.tr', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 287, '2011-05-03 06:42:48', '', NULL, NULL),
+(4817, 'otelsema', 'otelsema', 'Osman Çaybağı', 'info@otelsema.com.tr', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 287, '2011-05-03 06:52:34', '', NULL, NULL),
+(4818, 'hotelavsar', 'hotelavsar', 'Hüseyin Güler', 'otelavsar@otelavsar.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 287, '2011-05-03 06:57:44', '', NULL, NULL),
+(4819, 'grandakkozahotel', 'grandakkozahotel', 'Murat Toy', 'murattoy@akkozahotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 287, '2011-05-03 07:01:42', '', NULL, NULL),
+(4820, 'bilemhotel', 'bilemhotel', 'Bilem Hotel', 'info@bilemhotel.net', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 287, '2011-05-03 07:08:06', '', NULL, NULL),
+(4821, 'admiralhotel', 'admiralhotel', 'Duran Ayaz', 'info@admiralotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 287, '2011-05-03 07:10:23', '', NULL, NULL),
+(4822, 'grandaktasotel', 'grandaktasotel', 'Grand Aktaş Otel', 'bilgi@otelaktas.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 287, '2011-05-03 07:15:48', '', NULL, NULL),
+(4823, 'hotelgondol', 'hotelgondol', 'Turgut Özdemir', 'gm@otelgondol.com.tr', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 286, '2011-05-03 07:21:13', '', NULL, NULL),
+(4824, 'olbioshotel', 'olbioshotel', 'Hüseyin Özcan', 'info@olbios.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 286, '2011-05-03 07:24:49', '', NULL, NULL),
+(4825, 'zumrutotel', 'zumrutotel', 'Adnan Dizdaroğlu', 'zumrutotel@zumrutotel.com.tr', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 286, '2011-05-03 07:33:13', '', NULL, NULL),
+(4826, 'royalstonehouses', 'royalstonehouses', 'Esra Kırtılukoğlu', 'royal@dinler.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 286, '2011-05-03 07:35:00', '', NULL, NULL),
+(4827, 'zinoscountryhotel', 'zinoscountryhotel', 'Serkan Türkoğlu', 'info@zinoshotel.com.tr', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 286, '2011-05-03 07:39:51', '', NULL, NULL),
+(4828, 'hotelhoron', 'hotelhoron', 'Hami Tokgöz', 'contact@hotelhoron.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 286, '2011-05-03 07:43:10', '', NULL, NULL),
+(4829, 'tamaraotel', 'tamaraotel', 'Tamara Otel', 'info@tamaraotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 286, '2011-05-03 07:48:02', '', NULL, NULL),
+(4830, 'buyukasuroteli', 'buyukasuroteli', 'Necat Bozbay', 'asur@buyukasur.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 286, '2011-05-03 07:49:26', '', NULL, NULL),
+(4831, 'otelkervansaray', 'otelkervansaray', 'Emin Yurdalan', 'info@otelkervansaray.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 286, '2011-05-03 07:51:45', '', NULL, NULL),
+(4832, 'eleganceresorthotel', 'eleganceresorthotel', 'İhan Aydemir', 'info@eleganceresort.com.tr', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 286, '2011-05-03 08:05:52', '', NULL, NULL),
+(4833, 'cukurovaparkhotel', 'cukurovaparkhotel', 'Pınar Turan', 'info@cukurovaparkhotel.com.tr', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 286, '2011-05-03 08:16:00', '', NULL, NULL),
+(4834, 'cenderhotel', 'cenderhotel', 'Kenan Betus', 'info@cenderhotel.com.tr', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 280, '2011-05-04 02:01:12', '', NULL, NULL),
+(4835, 'aktashotel', 'aktashotel', 'Mehmet Serkan Yıldız', 'info@aktashotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 280, '2011-05-04 02:02:41', '', NULL, NULL),
+(4836, 'turanprinceworldhotel', 'turanprinceworldhote', 'Zekai Aydın', 'turanprince@turanprince.com.tr', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 279, '2011-05-04 02:12:43', '', NULL, NULL),
+(4837, 'ozmenpansiyon', 'ozmenpansiyon', 'Aziz Barış', 'ozmen@ozmenpension.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 279, '2011-05-04 02:18:03', '', NULL, NULL),
+(4838, 'sanmarinhotel', 'sanmarinhotel', 'Şan Marin', 'info@hotelsanmarin.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 279, '2011-05-04 02:19:53', '', NULL, NULL),
+(4839, 'adonishotel', 'adonishotel', 'İlker Yılmaz', 'adonis@adonishotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 279, '2011-05-04 02:25:56', '', NULL, NULL),
+(4840, 'dejavuboutiquehotel', 'dejavuboutiquehotel', 'Koray Yaşar', 'info@dejavuboutiquehotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 279, '2011-05-04 02:29:14', '', NULL, NULL),
+(4841, 'alatimyavillage', 'alatimyavillage', 'Asuman Kıvanç', 'info@alatimya.com.tr', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 279, '2011-05-04 02:33:44', '', NULL, NULL),
+(4842, 'zeushotel', 'zeushotel', 'Hacı Yıldırım', 'info@zeushotel.com.tr', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 279, '2011-05-04 02:42:06', '', NULL, NULL),
+(4918, 'heraklesthermal', 'heraklesthermal', 'Levent Altuntaş', 'herakles@heraklesthermal.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 138, '2011-05-16 02:19:36', '', NULL, NULL),
+(4844, 'otelbozdogan', 'otelbozdogan', 'Habip Bozdoğan', 'info@otelbozdogan.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 279, '2011-05-04 02:50:39', '', NULL, NULL),
+(4845, 'theapplepalace', 'theapplepalace', 'The Apple Palace', 'theapplepalace@applegrup.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 279, '2011-05-04 02:59:52', '', NULL, NULL),
+(4846, 'oteltahran', 'oteltahran', 'Hakan İlhan', 'info@oteltahran.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 279, '2011-05-04 03:08:59', '', NULL, NULL),
+(4847, 'bogaziciotel', 'bogaziciotel', 'Murat Pekatik', 'bogaziciotel74@hotmail.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 279, '2011-05-04 03:21:52', '', NULL, NULL),
+(4848, 'hotelsarioglu', 'hotelsarioglu', 'Adnan Sarı', 'info@sariogluotel.com.tr', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 279, '2011-05-04 03:28:20', '', NULL, NULL),
+(4849, 'batotermalotel', 'batotermalotel', 'Ali Öztürk', 'info@bato.com.tr', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 279, '2011-05-04 03:32:07', '', NULL, NULL),
+(4850, 'hoteltatvankardelen', 'hoteltatvankardelen', 'Metin Gül', 'otelkardelen@gmail.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 278, '2011-05-04 03:42:29', '', NULL, NULL),
+(4851, 'balcovatermalotel', 'balcovatermalotel', 'M.A.Fikret Karagülle', 'info@balcovatermal.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 278, '2011-05-04 03:56:50', '', NULL, NULL),
+(4852, 'hoteldelmar', 'hoteldelmar', 'Recep Dinlenmez', 'info@delmarhotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 278, '2011-05-04 03:58:09', '', NULL, NULL),
+(4853, 'polatdemirhotel', 'polatdemirhotel', 'Tuba Havaleoğlu', 'sales@polatdemirhotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 278, '2011-05-04 04:11:46', '', NULL, NULL),
+(4854, 'hotelcartoon', 'hotelcartoon', 'Derya Aydın', 'info@cartoonhotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 278, '2011-05-04 04:12:50', '', NULL, NULL),
+(4855, 'kivanchotel', 'kivanchotel', 'Mustafa Esendemir', 'info@kivanchotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 278, '2011-05-04 04:20:35', '', NULL, NULL),
+(4856, 'hoteleronur', 'hoteleronur', 'Eronur Hotel', 'info@hoteleronur.com ', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 278, '2011-05-04 04:23:03', '', NULL, NULL),
+(4857, 'cankiribuyukotel', 'cankiribuyukotel', 'Çankırı Büyük Otel', 'bilgi@cankiribuyukotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 278, '2011-05-04 04:32:04', '', NULL, NULL),
+(4858, 'grandsevgihotel', 'grandsevgihotel', 'Gonca Sevgi', 'info@grandsevgihotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 278, '2011-05-04 04:35:14', '', NULL, NULL),
+(4859, 'colossaehotel', 'colossaehotel', 'Recep Altuntaş', 'colossae@colossaehotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 278, '2011-05-04 04:41:07', '', NULL, NULL),
+(4860, 'richmondhotels', 'richmondhotels', 'Asiye Atacan', 'info@richmondhotels.com.tr', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 278, '2011-05-04 04:42:04', '', NULL, NULL),
+(4861, 'efehotel', 'efehotel', 'Altay Süslü', 'efehotel@hotmail.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 278, '2011-05-04 04:55:15', '', NULL, NULL),
+(4862, 'buyukerzincanoteli', 'buyukerzincanoteli', 'Büyük Erzincan Oteli', 'bilgi@buyukerzincanoteli.com.tr', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 278, '2011-05-04 05:06:17', '', NULL, NULL),
+(4863, 'otelmete', 'otelmete', 'Adem Mete', 'bilgi@otelmete.com.tr', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 278, '2011-05-04 05:08:10', '', NULL, NULL),
+(4864, 'senlerotel', 'senlerotel', 'Turan Şimşek', 'senlerotel30@gmail.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 278, '2011-05-04 05:10:30', '', NULL, NULL),
+(4865, 'jasminecourthotel', 'jasminecourthotel', 'Jasmine Courthotel', 'info@jasminecourthotel', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 278, '2011-05-04 05:17:39', '', NULL, NULL),
+(4866, 'kastamaonukonakları', 'kastamaonukonakları', 'I.Bülent Çadırcıoğlu', 'info@toprakcilar.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 278, '2011-05-04 05:21:38', '', NULL, NULL),
+(4867, 'temurtermalotel', 'temurtermalotel', 'Behiye Demir', 'iletisim@temurtermalotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 278, '2011-05-04 05:25:03', '', NULL, NULL),
+(4868, 'citakresorthotel', 'citakresorthotel', 'Çitak Hotel', 'citakresorthotel@hotmail.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 278, '2011-05-04 05:26:14', '', NULL, NULL),
+(4869, 'arissahotel', 'arissahotel', 'Arissa Hotel', 'arissahotel@hotmail.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 278, '2011-05-04 05:35:35', '', NULL, NULL),
+(4870, 'safranboluyavuzlarotel', 'safranboluyavuzlarotel', 'Muhammet Yavuz', 'info@safranboluyavuzlarotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 278, '2011-05-04 05:38:36', '', NULL, NULL),
+(4871, 'emettermalresort', 'emettermalresort', 'Mustafa Hügül', 'emet@emetterma.com.tr', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 278, '2011-05-04 05:42:50', '', NULL, NULL),
+(4872, 'grandgebzehotel', 'grandgebzehotel', 'Turan Katı', 'rl@grandgebzehotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 278, '2011-05-04 05:45:23', '', NULL, NULL),
+(4873, 'argosincappadocia', 'argosincappadocia', 'Argos In Capadocia', 'aic@argos.com.tr', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 278, '2011-05-04 05:48:28', '', NULL, NULL),
+(4874, 'sahinotel', 'sahinotel', 'Mesut Kara', 'info@sahinotel.net', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 278, '2011-05-04 05:54:56', '', NULL, NULL),
+(4875, 'patulyahotel', 'patulyahotel', 'Hamdi Küçük', 'hotel@patulya.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 278, '2011-05-04 05:55:58', '', NULL, NULL),
+(4876, 'beldeotel', 'beldeotel', 'Ahmet Kaan Kaya', 'info@beldeotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 278, '2011-05-04 05:59:51', '', NULL, NULL),
+(4877, 'buyuksamsunoteli', 'buyuksamsunoteli', 'İsmail Demirbaş', 'idemirbas@buyuksamsunoteli.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 278, '2011-05-04 06:01:12', '', NULL, NULL),
+(4878, 'sivasbuyukotel', 'sivasbuyukotel', 'Sivas Büyükotel', 'sivasbuyukotel@hotmail.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 278, '2011-05-04 06:17:01', '', NULL, NULL),
+(4879, 'goldenyathotel', 'goldenyathotel', 'Golden Yat Otel', 'info@goldenyathotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 276, '2011-05-04 06:53:14', '', NULL, NULL),
+(4880, 'seckinhotel', 'seckinhotel', 'Ümit Kılıç', 'hotel@hotelseckin.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 276, '2011-05-04 06:59:02', '', NULL, NULL),
+(4881, 'manicihotel', 'manicihotel', 'Manici Hotel', 'info@maniciurfa.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 276, '2011-05-04 07:01:26', '', NULL, NULL),
+(4882, 'hotelelruha', 'hotelelruha', 'Hotel El-Ruha', 'info@hotelelruha.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 276, '2011-05-04 07:04:26', '', NULL, NULL),
+(4883, 'grandusakhotel', 'grandusakhotel', 'Nihal Özer', 'info@grandusakhotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 276, '2011-05-04 07:10:39', '', NULL, NULL),
+(4884, 'tokatbuyukotel', 'tokatbuyukotel', 'Fatih Kılıç', 'tokatbuyukotel@hotmail.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 276, '2011-05-04 07:11:47', '', NULL, NULL),
+(4885, 'yÄ±lmazotel', 'yÄ±lmazotel', 'Süleyman Yılmaz', 'rezervasyon@yilmazotel.com.tr', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 276, '2011-05-04 07:13:16', '', NULL, NULL),
+(4886, 'grandsaroglu', 'grandsaroglu', 'Grand Saroğlu Oteli', 'grandsaroglu@hotmail.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 276, '2011-05-04 07:26:48', '', NULL, NULL),
+(4887, 'hiltonistanbul', 'hiltonistanbul', 'Oğuz Kayalı', 'oguzkayali@hilton.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 276, '2011-05-04 07:38:11', '', NULL, NULL),
+(4888, 'otelaltinnal', 'otelaltinnal', 'Otel Altınnal', 'info@otelaltinnal.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 274, '2011-05-05 01:55:58', '', NULL, NULL),
+(4889, 'otelbolat', 'otelbolat', 'Mustafa Çelik', 'otelbolat@windowslive.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 274, '2011-05-05 02:03:03', '', NULL, NULL),
+(4890, 'savonhotel', 'savonhotel', 'Uğur Çir', 'info@savonhotel.com.tr', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 274, '2011-05-05 02:12:14', '', NULL, NULL),
+(4891, 'buyukantakyaoteli', 'buyukantakyaoteli', 'Sabahattin Nacioğlu', 'info@buyukantakyaoteli.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 274, '2011-05-05 02:26:49', '', NULL, NULL),
+(4892, 'greenparkhotel', 'greenparkhotel', 'Zeki Atasoy', 'diyarbakirrezervasyon@greenparkhotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 274, '2011-05-05 02:32:38', '', NULL, NULL),
+(4893, 'hotelterzioglu', 'hotelterzioglu', 'Serap Yakut', 'rezervasyon@hotelterzioglu.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 274, '2011-05-05 02:37:26', '', NULL, NULL),
+(4894, 'otelbuyukmaras', 'otelbuyukmaras', 'Otel Büyük Maraş', 'otelbuyukmaras@ttnet.net.tr', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 274, '2011-05-05 02:49:17', '', NULL, NULL),
+(4895, 'omerthermalhotel', 'omerthermalhotel', 'Serap Özcan', 'info@omerthermal', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 274, '2011-05-05 02:52:01', '', NULL, NULL),
+(4896, 'grandakdemotel', 'grandakdemotel', 'Metin Gökçe', 'grand.akdem.otel@hotmail.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 274, '2011-05-05 02:57:11', '', NULL, NULL),
+(4897, 'buyukardahanoteli', 'buyukardahanoteli', 'Özcan Uygur', 'info@buyukardahanoteli.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 274, '2011-05-05 03:04:23', '', NULL, NULL),
+(4898, 'osmanlipresijotel', 'osmanlipresijotel', 'Osmanlı Prestij Otel', 'osmanlipresijotel@hotmail.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 274, '2011-05-05 03:07:46', '', NULL, NULL),
+(4899, 'dedeman', 'dedeman', 'Dedeman', 'rize@dedeman.com ', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 274, '2011-05-05 03:12:17', '', NULL, NULL),
+(4900, 'konyanilotel', 'konyanilotel', 'Mustafa Dinç', 'bilgi@otelnil.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 273, '2011-05-05 03:20:54', '', NULL, NULL),
+(4901, 'antakyaottomanpalace', 'antakyaottomanpalace', 'Ottoman palace', 'info@antakyaottomanpalace.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 271, '2011-05-05 03:33:36', '', NULL, NULL),
+(4902, 'sRGB', 'sRGB', 'OKTAY BALA', 'oktaybala@gmail.com', '', 'Member', 1, '127.0.0.1', '2011-06-01', 269, '2011-05-05 04:47:32', '', NULL, NULL),
+(4904, 'oteldulgeroglu', 'oteldulgeroglu', 'Otel Dulgeroglu', 'info@oteldulgeroglu.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 250, '2011-05-06 03:40:01', '', NULL, NULL),
+(4770, 'defneprenses', 'defneprenses', 'Metin Summakoğlu', 'info@defneprenses.com.tr', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 300, '2011-05-02 03:24:02', '', NULL, NULL),
+(4771, 'clubhotelbarbarossa', 'clubhotelbarbarossa', 'Club Hotel Barbarossa', 'sales@hotelbarbarossa.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 300, '2011-05-02 03:31:46', '', NULL, NULL),
+(4927, 'elitehotels', 'elitehotels', 'Sergül Sayar', 'sergul.sayar@elitehotels.com.tr', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 129, '2011-05-17 09:58:11', '', NULL, NULL),
+(4905, 'canan', '8902', 'canan duman', 'cnnduman@hotmail.com', '', 'Super Admin', 0, '127.0.0.1', '2011-06-01', 234, '2011-05-07 10:57:27', '', NULL, NULL),
+(4907, 'selalehotel', 'selalehotel', 'İrem Hıdıroğlu', 'irem-hdroglu@hotmail.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 215, '2011-05-09 02:18:08', '', NULL, NULL),
+(4928, 'hotelvenera', 'hotelvenera', 'Ayşim Uslu', 'reservation@hotelvenera.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 128, '2011-05-17 10:26:13', '', NULL, NULL),
+(4926, 'klashotel', 'klashotel', 'Pınar Kaya', 'sales@klashotel.com.tr', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 129, '2011-05-17 09:41:43', '', NULL, NULL),
+(4924, 'hotelsantapera', 'hotelsantapera', 'Murat Gülşen', 'info@hotelsantapera.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 134, '2011-05-17 02:56:15', '', NULL, NULL),
+(4923, 'hotelgrandwashington', 'hotelgrandwashington', 'Özkan Deli', 'info@grand-washington.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 134, '2011-05-17 02:47:22', '', NULL, NULL),
+(4925, 'hotelgrandsile', 'hotelgrandsile', 'Hüseyin Kılıç', 'info@hotelgrandsile.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 129, '2011-05-17 09:22:52', '', NULL, NULL),
+(4922, 'ciraganpalace', 'ciraganpalace', 'Güray Can', 'reservationoffice.ciraganpalace@kempinski.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 134, '2011-05-17 02:39:48', '', NULL, NULL),
+(4921, 'lamaison', 'lamaison', 'Gül Abay', 'mail@lamaison.com.tr', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 134, '2011-05-17 02:25:48', '', NULL, NULL),
+(4909, 'dilahotel', 'dilahotel', 'Sedat Öğretmenoğlu', 'info@dilahotel.com.tr ', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 187, '2011-05-12 08:43:06', '', NULL, NULL),
+(4908, 'marbelhotel', 'marbelhotel', 'Resul Akbaş', 'reservation@marbelhotel.com.tr', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 191, '2011-05-12 03:07:03', '', NULL, NULL),
+(4915, 'samplehotel', 'samplehotel', 'Sample Hotel', 'otel24turkey@gmail.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 149, '2011-05-15 11:46:27', '', NULL, NULL),
+(4919, 'marblehotel', 'marblehotel', 'Emine Tufan', 'info@marblehotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 135, '2011-05-17 02:05:44', '', NULL, NULL),
+(4911, 'alminahotel', 'alminahotel', 'Halil Şahin', 'info@alminahotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 166, '2011-05-13 04:44:25', '', NULL, NULL),
+(4912, 'hotelambassador', 'hotelambassador', 'Melanic Lardong', 'info@hotelambassador.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 162, '2011-05-13 07:10:19', '', NULL, NULL),
+(4920, 'thegreenpark', 'thegreenpark', 'Burcu Karademir', 'info@thegreenpark.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 134, '2011-05-17 02:16:19', '', NULL, NULL),
+(4914, 'angoraotel', 'angoraotel', 'Aylin Özkan', 'info@angoraotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 157, '2011-05-14 09:11:51', '', NULL, NULL),
+(4917, 'hotelmonopol', 'hotelmonopol', 'Süleyman Hüzmel', 'info@hotelmonopol.net', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 139, '2011-05-16 01:59:03', '', NULL, NULL),
+(4916, 'hotelsuadiye', 'hotelsuadiye', 'Tülay Sevim', 'info@hotelsuadiye.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 139, '2011-05-16 01:47:59', '', NULL, NULL),
+(4913, 'bilekhotel', 'bilekhotel', 'Türkan Sekman', 'info@bilekistanbul.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 161, '2011-05-13 08:31:39', '', NULL, NULL),
+(4910, 'atalayhotel', 'atalayhotel', 'Melda Köknar', 'info@atalayhotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 174, '2011-05-13 02:07:13', '', NULL, NULL),
+(4929, 'ladydianahotel', 'ladydianahotel', 'Fatih Sevimli', 'info@ladydianahotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 128, '2011-05-17 10:39:25', '', NULL, NULL),
+(4930, 'feronyaotel', 'feronyaotel', 'Yasemin Akın', 'feronya@feronya.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 128, '2011-05-17 10:55:35', '', NULL, NULL),
+(4931, 'klassisresorthotel', 'klassisresorthotel', 'Şeyda Şengül', 'seyda.sengul@hamoglu.com.tr', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 128, '2011-05-17 11:05:16', '', NULL, NULL),
+(4934, 'fevzi', 'fevzi', 'Fevzi Saylığ', 'fevzi.otel24turkey@gmail.com', '', 'Editors', 1, '127.0.0.1', '2011-06-01', 92, '2011-05-20 03:16:36', '', NULL, NULL),
+(4933, 'irem', 'irem', 'İrem Hıdıroğlu', 'irem-hdrglu@hotmail.com', '', 'Editors', 1, '127.0.0.1', '2011-06-01', 94, '2011-05-20 03:12:12', '', NULL, NULL),
+(4932, 'dreamhillhotel', 'dreamhiillhotel', 'Gökçe Aysal', 'gokce.aysal@dreamhillhotel.com', '', 'Hotel Owners', 1, '127.0.0.1', '2011-06-01', 102, '2011-05-18 06:55:40', '', NULL, NULL),
+(4935, 'mehul', 'mehul', 'mehul', 'meh@mail.com', NULL, 'Member', 1, '127.0.0.1', '2011-06-01', 4, '2011-05-31 10:35:17', '', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_user_msg_hotel`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_user_msg_hotel` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `hotel_id` bigint(20) NOT NULL DEFAULT '0',
+  `guest_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT NULL,
+  `guest_phone` varchar(64) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT NULL,
+  `guest_email` varchar(64) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT NULL,
+  `guest_msg` text CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `is_read` tinyint(4) NOT NULL DEFAULT '0',
+  `is_delete` tinyint(4) NOT NULL DEFAULT '0',
+  `is_replay` tinyint(4) NOT NULL DEFAULT '0',
+  `date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `tbl_user_msg_hotel`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_zip`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_zip` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `village_id` int(11) NOT NULL,
+  `local_id` int(11) NOT NULL,
+  `zipcode_English` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT NULL,
+  `city_id` bigint(20) unsigned DEFAULT NULL,
+  `state_id` bigint(20) DEFAULT NULL,
+  `country_id` bigint(20) unsigned DEFAULT NULL,
+  `status` bigint(20) unsigned DEFAULT NULL,
+  `zipcode_Turkish` varchar(255) COLLATE latin1_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`),
+  KEY `id_2` (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=2 ;
+
+
+
+--
+-- Table structure for table `testing`
+--
+
+CREATE TABLE IF NOT EXISTS `testing` (
+  `a` varchar(5) COLLATE utf8_turkish_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+--
+-- Dumping data for table `testing`
+--
+
+INSERT INTO `testing` (`a`) VALUES
+('a'),
+('A'),
+('b'),
+('c'),
+('C'),
+('B'),
+('Ç'),
+('ç'),
+('y'),
+('Z'),
+('ğ');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `village`
+--
+
+CREATE TABLE IF NOT EXISTS `village` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `city_id` int(10) unsigned DEFAULT NULL,
+  `state_id` int(10) unsigned DEFAULT NULL,
+  `country_id` int(10) unsigned DEFAULT NULL,
+  `local_id` int(10) unsigned DEFAULT NULL,
+  `village_English` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT NULL,
+  `village_Turkish` varchar(255) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `status` tinyint(3) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+

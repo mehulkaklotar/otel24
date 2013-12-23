@@ -1,0 +1,241 @@
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-repeat:repeat-y;
+	background-image:url(../images/page_bg.gif);
+	background-position:center;
+	background-color:#AEAEAE
+}
+.top10{
+padding-top:10px;
+}
+#footer{
+width:921px;
+height:54px;
+background-repeat:no-repeat;
+background-image:url(../images/footer.jpg);
+}
+.white_txt{
+font-family:Arial, Helvetica, sans-serif;
+color:#FFFFFF;
+font-size:12px;
+}
+a.white_txt{
+font-family:Arial, Helvetica, sans-serif;
+color:#FFFFFF;
+font-size:12px;
+text-decoration:none;
+}
+a.white_txt:hover{
+font-family:Arial, Helvetica, sans-serif;
+color:#FFFFFF;
+font-size:12px;
+text-decoration:underline;
+}
+.white_bold{
+font-family:Arial, Helvetica, sans-serif;
+color:#FFFFFF;
+font-size:12px;
+font-weight:bold;
+}
+a.white_bold{
+font-family:Arial, Helvetica, sans-serif;
+color:#FFFFFF;
+font-size:12px;
+text-decoration:none;
+font-weight:bold;
+}
+a.white_bold:hover{
+font-family:Arial, Helvetica, sans-serif;
+color:#FFFFFF;
+font-size:12px;
+text-decoration:underline;
+font-weight:bold;
+}
+.white11{
+font-family:Arial, Helvetica, sans-serif;
+color:#FFFFFF;
+font-size:11px;
+}
+a.white11{
+font-family:Arial, Helvetica, sans-serif;
+color:#FFFFFF;
+font-size:11px;
+text-decoration:none;
+}
+a.white11:hover{
+font-family:Arial, Helvetica, sans-serif;
+color:#FFFFFF;
+font-size:11px;
+text-decoration:underline;
+}
+.darkgray11{
+font-family:Arial, Helvetica, sans-serif;
+color:#5C5C5C;
+font-size:11px;
+}
+a.darkgray11{
+font-family:Arial, Helvetica, sans-serif;
+color:#5C5C5C;
+font-size:11px;
+text-decoration:none;
+}
+a.darkgray11:hover{
+font-family:Arial, Helvetica, sans-serif;
+color:#5C5C5C;
+font-size:11px;
+text-decoration:underline;
+}
+.darkgray11_bold{
+font-family:Arial, Helvetica, sans-serif;
+color:#5C5C5C;
+font-size:11px;
+font-weight:bold;
+}
+a.darkgray11_bold{
+font-family:Arial, Helvetica, sans-serif;
+color:#5C5C5C;
+font-size:11px;
+font-weight:bold;
+text-decoration:none;
+}
+a.darkgray11_bold:hover{
+font-family:Arial, Helvetica, sans-serif;
+color:#5C5C5C;
+font-size:11px;
+font-weight:bold;
+text-decoration:underline;
+}
+.pad4{
+padding:4px;
+}
+.topbtm8{
+padding-bottom:8px;
+padding-top:8px;
+}
+.left10{
+padding-left:10px;
+}
+.pad9{
+padding:9px;
+}
+.dull18{color: #666666; 
+font-size: 18px;
+font-family:Helvetica, Geneva, Arial, SunSans-Regular, sans-serif;
+letter-spacing: 1px;
+font-weight:bold;
+letter-spacing:1px;
+}
+.dullblue18{color: #5c768d; 
+font-size: 18px;
+font-family:Helvetica, Geneva, Arial, SunSans-Regular, sans-serif;
+letter-spacing: 1px;
+font-weight:bold;
+letter-spacing:1px;
+}
+
+
+.btm_gray{
+border-bottom:1px solid #D9DBDD;
+}
+.dark_txt{
+font-family:Arial, Helvetica, sans-serif;
+color:#585858;
+font-size:12px;
+}
+a.dark_txt{
+font-family:Arial, Helvetica, sans-serif;
+color:#585858;
+font-size:12px;
+text-decoration:none;
+}
+a.dark_txt:hover{
+font-family:Arial, Helvetica, sans-serif;
+color:#585858;
+font-size:12px;
+text-decoration:underline;
+}
+.orange_txt{
+font-family:Arial, Helvetica, sans-serif;
+color:#cc9900;
+font-size:12px;
+}
+a.orange_txt{
+font-family:Arial, Helvetica, sans-serif;
+color:#cc9900;
+font-size:12px;
+text-decoration:none;
+}
+a.orange_txt:hover{
+font-family:Arial, Helvetica, sans-serif;
+color:#cc9900;
+font-size:12px;
+text-decoration:underline;
+}
+#main_img{
+background-repeat:no-repeat;
+background-image:url(../images/main_img.jpg);
+height:205px;
+width:925px;
+}
+.btm6{
+padding-bottom:6px;
+}
+.top4{
+padding-top:4px;
+}
+#header{
+background-repeat:no-repeat;
+background-image:url(../images/header.jpg);
+width:925px;
+height:99px;
+}
+.right10{
+padding-right:10px;
+}
+.logo{
+margin-top:10px;
+margin-left:25px;
+}
+.input_box{
+font-family:Arial, Helvetica, sans-serif;
+color:#5C5C5C;
+font-size:11px;
+border:1px solid #5D6F7A;
+}
+.topbar_gray{
+font-family:Verdana, Arial, Helvetica, sans-serif;
+color:#666666;
+font-size:10px;
+}
+a.topbar_gray{
+font-family:Verdana, Arial, Helvetica, sans-serif;
+color:#666666;
+font-size:10px;
+text-decoration:none;
+}
+a.topbar_gray:hover{
+font-family:Verdana, Arial, Helvetica, sans-serif;
+color:#666666;
+font-size:10px;
+text-decoration:underline;
+}
+.topbar_orange{
+font-family:Verdana, Arial, Helvetica, sans-serif;
+color:#CC9900;
+font-size:10px;
+}
+a.topbar_orange{
+font-family:Verdana, Arial, Helvetica, sans-serif;
+color:#CC9900;
+font-size:10px;
+text-decoration:none;
+}
+a.topbar_orange:hover{
+font-family:Verdana, Arial, Helvetica, sans-serif;
+color:#CC9900;
+font-size:10px;
+text-decoration:underline;
+}

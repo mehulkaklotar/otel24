@@ -1,0 +1,120 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+padding:20px 0px 0px 0px;
+margin:0px;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:11px;
+}
+
+img{
+border:none;
+}
+.headback{
+background:url(images/border.png) no-repeat;
+width:971px;
+height:70px;
+padding:10px;
+vertical-align:top;
+}
+.head1{
+font-size:18px;
+color:#000000;
+font-weight:bold;
+}
+.head2{
+font-size:16px;
+color:#666666;
+font-weight:normal;
+}
+.headlink{
+color:#666666;
+font-size:16px;
+font-weight:normal;
+vertical-align:bottom;
+}
+.headlink a{
+color:#202d95;
+font-size:13px;
+text-decoration:none;
+}
+.headlink a:hover{
+color:#202d95;
+font-size:13px;
+text-decoration:none;
+font-weight:normal;
+}
+.brd{
+border:#999999 solid 1px;
+}
+.searchback{
+background:url(images/searchbanner.png) no-repeat;
+width:949px;
+height:310px;
+text-align:center;
+}
+.searchbar{
+background:url(images/searchbar.png) no-repeat;
+border:none;
+width:589px;
+height:37px;
+padding-left:10px;
+padding-right:8px;
+}
+
+
+.searchbara {
+	border: 0;
+	width:570px;
+	
+}
+
+.search{
+background:url(images/searchbutton.png) no-repeat;
+border:none;
+width:84px;
+height:37px;
+}
+.editor{
+font-size:14px;
+color:#000000;
+font-weight:normal;
+}
+.citytitle{
+font-size:12px;
+color:#000000;
+font-weight:normal;
+}
+.hoteltitle{
+font-size:14px;
+color:#666666;
+font-weight:normal;
+}
+.hoteldesc{
+font-size:10px;
+color:#666666;
+font-weight:normal;
+}
+.hotelprice{
+font-size:10px;
+color:#990000;
+font-weight:normal;
+}
+.footer{
+font-size:9px;
+color:#666666;
+font-weight:normal;
+}
+.footer a{
+font-size:14px;
+color:#666666;
+font-weight:normal;
+text-decoration:none;
+}
+.footer a:hover{
+font-size:14px;
+color:#666666;
+font-weight:normal;
+text-decoration:none;
+}

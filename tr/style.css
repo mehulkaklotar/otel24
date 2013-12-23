@@ -1,0 +1,784 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+padding:20px 0px 0px 0px;
+margin:0px;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:11px;
+}
+
+img{
+border:none;
+}
+
+.headback{
+background:url(images/border.png) no-repeat;
+width:971px;
+height:70px;
+padding:10px;
+vertical-align:top;
+}
+
+.head1{
+font-size:18px;
+color:#000000;
+font-weight:bold;
+}
+
+.head2{
+font-size:16px;
+color:#666666;
+font-weight:normal;
+}
+.headlink{
+color:#666666;
+font-size:16px;
+font-weight:normal;
+vertical-align:bottom;
+}
+.headlink a{
+color:#202d95;
+font-size:13px;
+text-decoration:none;
+}
+.headlink a:hover{
+color:#202d95;
+font-size:13px;
+text-decoration:none;
+font-weight:normal;
+}
+.brd{
+border:#999999 solid 1px;
+}
+.searchback{
+background:url(images/searchbanner.png) no-repeat;
+width:949px;
+height:310px;
+text-align:center;
+}
+.searchbar{
+background:url(images/searchbar.png) no-repeat;
+border:none;
+width:593px;
+height:33px;
+padding-left:10px;
+padding-right:8px;
+}
+.searchbar1{
+background:url(images/searchbar.png) no-repeat;
+border:none;
+width:250px;
+height:37px;
+padding-left:10px;
+padding-right:8px;
+}
+.searchbara {
+	border: 0;
+	width:574px;
+	
+}
+
+.searchbara1 {
+	border: 0;
+	width:250px;
+	
+}
+
+.search{
+background:url(images/searchbutton.png) no-repeat;
+border:none;
+width:86px;
+height:33px;
+}
+.editor{
+font-size:14px;
+color:#000000;
+font-weight:normal;
+}
+.citytitle{
+font-size:12px;
+color:#000000;
+font-weight:normal;
+}
+.hoteltitle{
+font-size:14px;
+color:#666666;
+font-weight:normal;
+}
+.hoteldesc{
+font-size:10px;
+color:#666666;
+font-weight:normal;
+}
+.hotelprice{
+font-size:10px;
+color:#990000;
+font-weight:normal;
+}
+.footer{
+font-size:9px;
+color:#666666;
+font-weight:normal;
+}
+.footer a{
+font-size:14px;
+color:#666666;
+font-weight:normal;
+text-decoration:none;
+}
+.footer a:hover{
+font-size:14px;
+color:#666666;
+font-weight:normal;
+text-decoration:none;
+}
+
+.signin1
+{
+color:#589442;
+font-family:Arial, Helvetica, sans-serif;
+font-size:20px;
+font-weight:900;
+
+}
+
+.fb
+{
+color:2c2c2c;
+font-family:Arial, Helvetica, sans-serif;
+font-size:16px;
+font-weight:700;
+}
+
+#content
+{
+height:250px;
+font:Arial, Helvetica, sans-serif;
+padding-left:10px;
+}
+.otel
+{
+font-size:16px;
+font-weight:700;
+}
+
+
+#main
+{
+width:620px;
+height:540px;
+border:solid 2px;
+border-color:#d0a317;
+margin-left:15px;
+background-color:#f2f6eb;
+}
+
+#main1
+{
+overflow-y:scroll
+width:620px;
+height:540px;
+border:solid 2px;
+border-color:#d0a317;
+margin-left:15px;
+background-color:#f2f6eb;
+}
+
+#mainsignin
+{
+background-color:#FFFFFF;
+width:640px;
+height:550px;
+border:solid 2px;
+border-color:#d0a317;
+}
+
+.signin
+{
+background:url(images/signin.png) no-repeat;
+width:69px;
+height:21px;
+border:none;
+}
+
+.heading
+{
+font-size:18px;
+color:#585858;
+text-align:center;
+font-weight:bold;
+}
+
+#left
+{
+padding-top:20px;
+padding-left:30px;
+width:200px;
+}
+
+#right
+{
+padding-left:20px;
+padding-top:20px;
+width:200px;
+}
+
+.txtheading
+{
+font-size:12px;
+}
+
+.image
+{
+width:100px;
+padding-left:20px;
+padding-top:20px;
+}
+
+.btngreen
+{
+font-weight:bold;
+color:#FFFFFF;
+background-image:url(images/btngreen.png);
+border:none;
+height:20px;
+width:80px;
+}
+
+.avalhead
+{
+color:#8c8c8c;
+font-size:14px;
+font-style:italic;
+text-align:center;
+}
+
+.avalvalue
+{
+color:#8d8d8d;
+font-size:12px;
+font-style:italic;
+text-align:center;
+}
+
+.secure
+{
+color:#dbb74a;
+font-size:12px;
+font-style:italic;
+font-weight:bold;
+}
+
+.padding
+{
+padding-top:70px;
+}
+
+.btnb2l
+{
+background-image:url(images/backtolist.png);
+border:none;
+height:23px;
+width:100px;
+}
+
+.red
+{
+color:#FF0000;
+}
+.hotel_img
+{
+border:solid 3px;
+border-color:#d3d3d3;
+height:74px;
+width:130px;
+margin-left:5px;
+margin-top:5px;
+}
+
+.hotel_vid
+{
+border:solid 3px;
+border-color:#d3d3d3;
+height:74px;
+width:130px;
+margin-left:5px;
+margin-top:5px;
+}
+.signup
+{
+background:url(images/submit.png) no-repeat;
+width:94px;
+height:18px;
+border:none;
+}
+
+.thanks
+{
+font-size:18px;
+color:#006600;
+
+padding-top:90px;
+}
+
+.thanks p a
+{
+font-size:14px;
+color:#0000FF;
+}
+
+#otelimg
+{
+padding-top:10px;
+}
+
+#signup_main
+{
+width:620px;
+height:500px;
+border:solid 2px;
+border-color:#d0a317;
+padding-left:15px;
+background-color:#f2f6eb;
+padding-top:25px;
+}
+.hellousr
+{
+color:#000099;
+font-size:12px;
+vertical-align:bottom;
+}
+#signin_main
+{
+width:620px;
+height:500px;
+border:#d0a317 solid 2px;
+padding-left:15px;
+background-color:#f2f6eb;
+padding-top:25px;
+}
+.back
+{
+background:url(images/back.png);
+height:20px;
+width:50px;
+border:none;
+}
+
+.join
+{
+background-color:#e7eeda;
+width:80px;
+height:100px;
+text-align:center;
+}
+
+.join1
+{
+margin-top:75px;
+margin-left:30px;
+background-color:#e7eeda;
+width:80px;
+height:100px;
+text-align:center;
+}
+
+  .joinsignup
+{
+margin-top:70px;
+margin-left:30px;
+background-color:#e7eeda;
+width:80px;
+height:100px;
+text-align:center;
+}
+
+
+#hotel
+{
+height:540px;
+width:450px;
+padding-left:10px;
+}
+
+#hotel1
+{
+height:190px;
+width:450px;
+padding-left:10px;
+padding-top:10px;
+}
+
+#lefthotel
+{
+padding-bottom:5px;}
+
+#price
+{
+height:25px;
+color:#FF0000;
+font-size:14px;
+}
+
+
+#img
+{
+height:120px;
+}
+
+#rate
+{
+height:25px;
+padding-top:10px;
+color:#717171;
+font-style:italic;
+}
+
+#middlehotel
+{
+padding-left:15px;
+width:250px;
+padding-bottom:5px;
+}
+
+#hotelname
+{
+height:25px;
+color:#656565;
+font-size:18px;
+font-style: italic;
+font-weight: bold;
+width:250px;
+}
+
+.desc
+{color:#787878;
+font-size:14px;
+font-style:italic;
+}
+
+#hotelcontent
+{
+height:120px;
+color:#787878;
+font-size:14px;
+font-style:italic;
+width:250px;	
+
+}
+
+#hotelcontent a
+{
+font-size:10px;
+color:#FF0000;
+text-decoration:none;
+
+}
+
+.indexlink
+{
+font-size:10px;
+color:#FF0000;
+text-decoration:none;
+}
+
+#gallery
+{
+height:35px;
+width:235px;
+}
+#guestbook
+{
+border:solid;
+border-color:#d0a213;
+height:280px;
+width:450px;
+background:url(images/guestbg.png) no-repeat;
+}
+
+#guestbookhead
+{
+color:#cda11d;
+font-size:20px;
+padding-left:10px;
+padding-top:5px;
+}
+.guesttitle
+{
+color:#cda11d;
+font-size:12px;
+}
+
+#guestcontent
+{
+padding-top:50px;
+
+}
+
+.guest_submit
+{
+background:url(images/buttonguest.png) no-repeat;
+height:27px;
+width:120px;
+border:none;
+text-align:center;
+color:#fff;
+font-weight:bolder;
+}
+
+
+#addnew
+{
+padding-left:10px;
+padding-top:5px;
+padding-right:15px;
+}
+
+#signin
+{
+border:solid;
+border-color:#d0a213;
+height:280px;
+width:450px;
+background:#ffffff;
+}
+
+#signin_photo
+{
+border:solid;
+border-color:#d0a213;
+height:280px;
+width:455px;
+background:#ffffff;
+overflow-y:scroll;
+}
+
+
+#signup
+{
+border:solid;
+border-color:#d0a213;
+height:280px;
+width:450px;
+background:#ffffff;
+}
+
+#signinmain
+{
+padding-left:30px;
+border:solid;
+border-color:#d0a213;
+height:280px;
+width:500px;
+background:#ffffff;
+}
+
+#signupmain
+{
+padding-left:30px;
+border:solid;
+border-color:#d0a213;
+height:350px;
+width:500px;
+background:#ffffff;
+}
+
+.floatleft
+{
+float:left;
+}
+
+.floatright
+{
+float:right;
+}
+
+.clear
+{
+clear:both;
+}
+
+.image1
+{
+height:485px;
+width:150px;
+padding-left:30px;
+}
+
+.image2
+{
+height:190px;
+width:150px;
+padding-left:30px;
+}
+
+.btnbn
+{
+background-image:url(images/booknow.png);
+border:none;
+height:23px;
+width:100px;
+}
+
+.facebook
+{
+padding-left:100px;
+}
+
+.fb1
+{
+color:#515151;
+font-size:16px;
+font-style:italic;
+font-weight:bold;
+} 
+
+.fb2
+{
+color:#515151;
+font-size:12px;
+font-style:italic;
+font-weight:bold;
+} 
+
+#footerbar
+{
+padding-left:10px;
+}
+
+.oops
+{
+color:#909090;
+font-size:16px;
+font-weight:bold;
+}
+
+.second
+{
+padding-left:10px;
+padding-top:20px;
+}
+
+#hotelmain
+{
+background-color:#FFFFFF;
+width:660px;
+height:540px;
+overflow-y:scroll;
+border:solid 2px;
+border-color:#d0a317;
+}
+
+#bookregister
+{
+background-color:#FFFFFF;
+width:640px;
+height:540px;
+border:solid 2px;
+border-color:#d0a317;
+}
+
+#hotelmain1
+{
+background-color:#FFFFFF;
+width:660px;
+height:540px;
+overflow-y:scroll;
+}
+
+#photo_main
+{
+width:640px;
+height:540px;
+border:solid 2px;
+border-color:#d0a317;
+margin-left:5px;
+background-color:#ffffff;
+}
+.icons
+{
+padding-top:220px;
+width:100px;
+}
+
+.enimg
+{
+padding-top:10px;
+}
+
+
+/*tabing css*/
+ul.tabs {
+	margin: 0;
+	padding: 0;
+	float: left;
+	list-style: none;
+	height: 28px; /*--Set height of tabs--*/
+	border-bottom: 1px solid #999;
+	border-left: 1px solid #999;
+	width: 100%;
+}
+ul.tabs li {
+	float: left;
+	margin: 0;
+	padding: 0;
+	height: 27px; /*--Subtract 1px from the height of the unordered list--*/
+	line-height: 31px; /*--Vertically aligns the text within the tab--*/
+	border: 1px solid #999;
+	border-left: none;
+	margin-bottom: -1px; /*--Pull the list item down 1px--*/
+	overflow: hidden;
+	position: relative;
+	background: #ccc;
+}
+ul.tabs li a {
+	text-decoration: none;
+	color: #000;
+	display: block;
+	font-size: 1.2em;
+	padding: 0 20px;
+	border: 1px solid #fff; /*--Gives the bevel look with a 1px white border inside the list item--*/
+	outline: none;
+}
+ul.tabs li a:hover {
+text-decoration:underline;
+}
+html ul.tabs li.active, html ul.tabs li.active a:hover  { /*--Makes sure that the active tab does not listen to the hover properties--*/
+	background: #fff;
+	border-bottom: 1px solid #fff; /*--Makes the active tab look like it's connected with its content--*/
+}
+
+.tab_container {
+	border: 1px solid #999;
+	border-top: none;
+	overflow: hidden;
+	clear: both;
+	float: left; width: 100%;
+	background: #fff;
+}
+.tab_content {
+	padding: 20px;
+	font-size: 1.2em;
+}
+
+.sender
+{
+color:#cc9900;
+font-size:10px;
+}
+
+.sendertext
+{
+color:#333333;
+font-size:10px;
+padding-bottom:10px;
+}
+
+#comments
+{
+overflow-y:scroll;
+padding-left:30px;
+padding-top:10px;
+padding-right:20px;
+}

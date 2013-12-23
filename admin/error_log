@@ -1,0 +1,4 @@
+[21-Apr-2011 01:58:46] PHP Parse error:  syntax error, unexpected T_ELSE in /home/booking/public_html/management/admin/user_list.php on line 241
+[02-May-2011 07:48:18] PHP Parse error:  syntax error, unexpected '}' in /home/booking/public_html/management/admin/hotel_addf.php on line 1529
+[05-May-2011 06:24:32] PHP Warning:  mysql_query() [<a href='function.mysql-query'>function.mysql-query</a>]: Access denied for user 'booking'@'localhost' (using password: NO) in /home/booking/public_html/management/codelibrary/inc/functions.php on line 17
+[05-May-2011 06:24:32] PHP Warning:  mysql_query() [<a href='function.mysql-query'>function.mysql-query</a>]: A link to the server could not be established in /home/booking/public_html/management/codelibrary/inc/functions.php on line 17

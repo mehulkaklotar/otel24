@@ -1,0 +1,43 @@
+<?php
+
+error_reporting(0);
+session_start();
+/******************************************************************************
+*		File : config.inc.php                                                 *
+*       Date Created : Wednesday 11 July 2007, 10:53 AM                       *
+*       Date Modified : Wednesday 11 July 2007, 10:53 AM                      *
+*       File Comment : This file contain functions which will use in coding.  *
+*******************************************************************************/
+
+
+if($_SERVER['HTTP_HOST']=="localhost" || $_SERVER['HTTP_HOST']=="system14" ||  $_SERVER['HTTP_HOST']=="pd" ) {
+	// Config setting for localhost.
+	define(DBSERVER,"localhost");
+	define(DBNAME,"hotelguide_");
+	define(DBUSER,"root");
+	define(DBPASS,"kil54");
+	define(SITE_PATH,"http://localhost/ihotelhurkey/");
+} else {
+	
+	
+		define(DBSERVER,"localhost");
+	define(DBNAME,"hotelguide_");
+	define(DBUSER,"rgbmedya");
+	define(DBPASS,"ferhatp");
+	
+	
+	define(SITE_PATH,"http://ihotelturkey.com/management/");
+}
+// Database Connection Establishment String
+$con = mysql_connect(DBSERVER,DBUSER,DBPASS);
+
+// Database Selection String
+mysql_select_db(DBNAME);
+// Some common settings
+define(SITE_TITLE,"ihotelturkey");
+define(SITE_ADMIN_TITLE,"ihotelturkey - Secure Admin Area");
+define(PAGING_SIZE,15);
+
+$dat1=date('Y');
+$years=@range($dat1,$dat);
+?>

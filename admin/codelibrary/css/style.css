@@ -1,0 +1,178 @@
+/* CSS Document */
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+form{
+	margin:0;
+	padding:0;
+}
+.padding5px {
+	text-align:justify;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #606060;
+}
+.txt {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #606060;
+}
+
+.whiteTxt:link {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight:bold;
+	color: #FFFFFF;
+	text-decoration:underline;
+}
+.whiteTxt:hover {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight:bold;
+	color: #FFFFFF;
+	text-decoration:none;
+}
+.whiteTxt:visited {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight:bold;
+	color: #FFFFFF;
+	text-decoration:underline;
+}
+
+.bldTxt {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight:bold;
+	color: #606060;
+}
+.txtfld{
+	border:1px solid #4096AF;
+}
+.bigWhite{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #ffffff;
+}
+.menuLinks {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #4096AF;
+	text-decoration:none;
+}
+a.menuLinks {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #4096AF;
+	text-decoration:none;
+}
+.menuLinks:hover {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #4096AF;
+	text-decoration:underline;
+}
+.warning {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #FF0000;
+}
+.vwarning {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #FF0000;
+	vertical-align:top;
+}
+.orangetxt {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #4096AF;
+	text-decoration:none;
+}
+a.orangetxt {
+	text-decoration:none;
+}
+a.orangetxt:hover {
+	text-decoration:underline;
+}
+.title {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #606060;
+	font-weight:bold;
+	background:#EDEDED;
+}
+.heading {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #606060;
+	font-weight:bold;
+}
+.oddRow {
+background-color: #F6F6F6;
+}
+.evenRow {
+	background-color: #FFFFFF;
+} 
+.button{
+	font:12px arial;
+	background:#fff;
+	border:1px solid #000;
+}
+.blueBackground {
+	background:#4096AF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFF;
+}
+.adminGrey {
+	background : url(../../images/topGreyBar.jpg);
+	padding-left:10px;
+	font:bold 12px arial;
+	color:#606060;
+}
+.menuLeft {
+	background : url(../../images/menuBack.jpg);
+	padding-left:25px;
+	height:25px;
+	text-align:left;
+ }
+.menuBoldText {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #4096AF;
+}
+a.menuBoldText {
+	text-decoration:none;
+}
+a.menuBoldText:hover {
+	text-decoration:underline;
+}
+ .rightBorder {
+	border-right:1px solid #4096AF;
+ }
+ .subMenu {
+ padding-left:10px;
+ margin-left:5px;
+ background : url(../../images/plus.jpg);
+ background-repeat:no-repeat;
+ }
+ .greyBorder {
+ border:1px solid #C3C2C2;
+ }
+.avaltable
+ {
+ padding-top:20px;
+ padding-left:20px;
+ }
+ 
+ 
+ .avaltable td
+ {
+ background:#e4ecef;
+ }

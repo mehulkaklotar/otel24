@@ -1,0 +1,73 @@
+.body {
+	margin: 0px;
+}
+a.menu{
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:14px;
+  color:#000000;
+  text-decoration:none;
+}
+a.menu:hover{
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:14px;
+  color:#000000;
+  text-decoration:underline;
+}
+a.menu:visited{
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:14px;
+  color:#000000;
+  text-decoration:none;
+}
+.black_txt{
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:14px;
+  color:#000000;
+  text-align:justify;
+}
+.black_bld{
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:14px;
+  color:#000000;
+  font-weight:bold;
+}
+.heading{
+   font-family:Arial, Helvetica, sans-serif;
+   font-size:20px;
+   color:#9D0000;
+}
+.border{
+   border:1px solid #000000; 
+}
+a.bid:link {
+    color: #009533;
+    font-size : 19px; 
+    font-family: Verdana, Arial, Sans-Serif;
+    text-decoration : underline; 
+}
+
+a.bid:visited {
+    color: #009533;
+    font-size : 19px; 
+    font-family: Verdana, Arial, Sans-Serif;
+    text-decoration: underline;
+}
+
+a.bid:hover {
+    color: #000000;
+    font-size : 19px; 
+    font-family: Verdana, Arial, Sans-Serif;
+    text-decoration: underline;
+}
+
+.avaltable
+ {
+ padding-top:20px;
+ padding-left:20px;
+ }
+ 
+ 
+ .avaltable td
+ {
+ background:#e4ecef;
+ }
